@@ -1,0 +1,26 @@
+{
+  "title": "Quản lí mạng xã hội",
+  "name": "Tên",
+  "Social": "Mạng xã hội",
+
+  "addSocial": {
+    "title": "Thêm mạng xã hội",
+    "name": "Tên",
+    "value": "Đường dẫn",
+    "add": "Thêm"
+  },
+
+  "editSocial": {
+    "title": "Chỉnh sửa mạng xã hội",
+    "name": "Tên",
+    "value": "Đường dẫn",
+    "edit": "Chỉnh sửa"
+  },
+  "deleteSocial": {
+    "title": "Xóa mạng xã hội",
+    "description": "Bạn có chắc chắn muốn xoá mạng xã hội này?",
+    "cancelText": "Hủy",
+    "okText": "Xác nhận",
+    "delete": "Xóa"
+  }
+}

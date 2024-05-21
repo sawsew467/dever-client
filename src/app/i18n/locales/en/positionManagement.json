@@ -1,0 +1,27 @@
+{
+  "title": "Position Management",
+  "name": "Name",
+  "value": "Value",
+  "function": "Function",
+
+  "addPosition": {
+    "title": "Add Position",
+    "name": "Name",
+    "value": "Value",
+    "add": "Add"
+  },
+
+  "editPosition": {
+    "title": "Edit Position",
+    "name": "Name",
+    "value": "Value",
+    "edit": "Edit"
+  },
+  "deletePosition": {
+    "title": "Delete Position",
+    "description": "Are you sure to delete this Position?",
+    "cancelText": "Cancel",
+    "okText": "Ok",
+    "delete": "Delete"
+  }
+}

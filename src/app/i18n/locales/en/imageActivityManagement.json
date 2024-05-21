@@ -1,0 +1,26 @@
+{
+  "title": "Image Activity Management",
+  "name": "Name",
+  "Social": "Social",
+
+  "addSocial": {
+    "title": "Add image",
+    "name": "Name",
+    "value": "Value",
+    "add": "Add"
+  },
+
+  "editSocial": {
+    "title": "Edit image",
+    "name": "Name",
+    "value": "Value",
+    "edit": "Edit"
+  },
+  "deleteSocial": {
+    "title": "Delete image",
+    "description": "Are you sure to delete this image?",
+    "cancelText": "Cancel",
+    "okText": "Ok",
+    "delete": "Delete"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Major Management",
+  "name": "Name",
+  "value": "Value",
+  "function": "Function",
+
+  "addMajor": {
+    "title": "Add Major",
+    "name": "Name",
+    "value": "Value",
+    "add": "Add"
+  },
+
+  "editMajor": {
+    "title": "Edit Major",
+    "name": "Name",
+    "value": "Value",
+    "edit": "Edit"
+  },
+  "deleteMajor": {
+    "title": "Delete Major",
+    "description": "Are you sure to delete this Major?",
+    "cancelText": "Cancel",
+    "okText": "Ok",
+    "delete": "Delete"
+  }
+}

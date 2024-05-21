@@ -1,0 +1,11 @@
+{
+  "dashboard": "Bảng điều khiển",
+  "usersManagement": "Quản lý người dùng",
+  "departmentManagement": "Quản lý ban",
+  "positionManagement": "Quản lí chức vụ",
+  "majorManagement": "Quản lí chuyên ngành",
+  "socialManagement": "Quản lí Mạng xã hội",
+
+  "english": "Tiếng Anh",
+  "vietnamese": "Tiếng Việt"
+}

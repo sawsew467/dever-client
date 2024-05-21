@@ -8,6 +8,9 @@ const nextConfig = {
     styledComponents: true,
   },
   reactStrictMode: false,
+  images: {
+    domains: ["res.cloudinary.com", "aiartshop.com", "th.bing.com", "i.ibb.co"],
+  },
 };
 
 export default withNextIntl(nextConfig);

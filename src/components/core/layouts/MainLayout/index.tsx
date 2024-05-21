@@ -2,7 +2,7 @@
 
 import React, { useCallback, useLayoutEffect, useState } from "react";
 import Image from "next/image";
-import { MenuFoldOutlined } from "@ant-design/icons";
+import { MenuFoldOutlined} from "@ant-design/icons";
 import { Flex, Layout, Menu, Popover, message } from "antd";
 import { useParams, usePathname } from "next/navigation";
 import { AppProgressBar, useRouter } from "next-nprogress-bar";
@@ -97,7 +97,7 @@ const MainLayout = ({
                         level={4}
                         $color={themes?.default?.colors?.primary}
                       >
-                        Khảo thí
+                        FU-DEVER
                       </Typography.Title>
                     )}
                   </Flex>

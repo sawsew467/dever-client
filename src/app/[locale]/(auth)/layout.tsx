@@ -16,7 +16,7 @@ export default function RootAuthLayout({
   const token = getCookie(constants.ACCESS_TOKEN, { cookies });
 
   if (token) {
-    redirect(`/${locale}/user-management`);
+    redirect(`/${locale}/all-member`);
   }
 
   return <AuthLayout>{children}</AuthLayout>;

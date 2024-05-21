@@ -9,6 +9,10 @@ const endpointAuth = {
   VERIFY_TOKEN: `${prefixBase}/verifyToken`,
 };
 
+const endpointAllMember = {
+  GET_ALL_MEMBERS: `${prefixBase}/users/`,
+}
+
 const endpointUsersManagement = {
   GET_ALL_USERS: `${prefixBase}/users/`,
   DELETE_USER: `${prefixBase}/users/{id}`,
@@ -60,4 +64,5 @@ export {
   endpointMajorManagement,
   endpointSocialManagement,
   endpointImageActivityManagement,
+  endpointAllMember
 };

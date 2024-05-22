@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import SignInModule from "@/components/modules/SignIn";
 
 export const metadata: Metadata = {
-  title: "Phòng khảo thí | Đăng nhập",
+  title: "Fu - Dever | Đăng nhập",
 };
 
 function SignInPage() {

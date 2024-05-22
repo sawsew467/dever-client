@@ -36,19 +36,20 @@ function SignInModule() {
     try {
       const res: any = await signIn(values).unwrap();
 
-      if (!res?.data?.user?.isAdmin) {
-        message.error("Bạn không có quyền truy cập trang này");
-        return;
-      }
-
-      router?.push(`/${locale}/dashboard`);
+      console.log(res);
+      router?.push(`/${locale}/all-member`);
     } catch (error) {}
   };
 
   return (
     <S.Wrapper>
       <Flex justify="space-between">
-        <Image alt="" src={"/icons/layout/logo.svg"} width={40} height={40} />
+        <Image
+          alt=""
+          src={"/icons/layout/fu-dever-logo.png"}
+          width={40}
+          height={40}
+        />
         <SelectLanguage />
       </Flex>
       <Typography.Title

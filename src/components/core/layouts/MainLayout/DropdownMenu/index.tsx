@@ -31,10 +31,10 @@ function DropdownMenu() {
         console.log("profile");
         break;
       case "setting":
-        console.log("setting");
+        router.push(`/${locale}/settings`)
         break;
       case "logout":
-        webStorageClient.remove("_access_token");
+        webStorageClient.removeAll()
         router.push(`/${locale}/sign-in`);
         break;
       default:

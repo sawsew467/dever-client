@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Phòng khảo thí | Đăng ký",
+  title: "Fu - Dever | Đăng ký",
 };
 
 function SignUpPage() {

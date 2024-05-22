@@ -50,10 +50,7 @@ const MainLayout = ({
       const res: any = await verifyToken(
         webStorageClient.get("_access_token") || "??"
       ).unwrap();
-      if (!res?.data?.isAdmin) {
-        message.error("Bạn không có quyền truy cập trang này");
-        throw new Error("Bạn không có quyền truy cập trang này");
-      }
+ 
       setIsAuth(true);
       message.success("Kiểm tra truy cập thành công");
     } catch (error) {
@@ -81,14 +78,14 @@ const MainLayout = ({
         <Layout hasSider>
           <S.SiderCustom trigger={null} collapsible collapsed={collapsed}>
             <S.LogoWrapper
-              onClick={() => router?.push(`/${localActive}/dashboard`)}
+              onClick={() => router?.push(`/${localActive}/all-member`)}
             >
               <div className="demo-logo-vertical">
                 <Flex align="center" justify="space-between">
                   <Flex align="center" gap={12}>
                     <Image
                       alt=""
-                      src={"/icons/layout/logo.svg"}
+                      src={"/icons/layout/fu-dever-logo.png"}
                       width={40}
                       height={40}
                     />
@@ -107,7 +104,7 @@ const MainLayout = ({
 
             <Menu
               mode="inline"
-              defaultSelectedKeys={["user-management"]}
+              defaultSelectedKeys={["all-member"]}
               items={sideBarMenuFormat}
               onClick={(e) => router?.push(`/${localActive}/${e?.key}`)}
             />

@@ -13,6 +13,11 @@ const endpointAllMember = {
   GET_ALL_MEMBERS: `${prefixBase}/users/`,
 }
 
+const endpointSettings = {
+  GET_PROFILE: `${prefixBase}/users/{id}`,
+  EDIT_PROFILE: `${prefixBase}/edit-profile`
+}
+
 const endpointUsersManagement = {
   GET_ALL_USERS: `${prefixBase}/users/`,
   DELETE_USER: `${prefixBase}/users/{id}`,
@@ -64,5 +69,6 @@ export {
   endpointMajorManagement,
   endpointSocialManagement,
   endpointImageActivityManagement,
-  endpointAllMember
+  endpointAllMember,
+  endpointSettings
 };

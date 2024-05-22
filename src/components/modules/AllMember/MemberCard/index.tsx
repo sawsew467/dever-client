@@ -20,7 +20,7 @@ function MemberCard({ dataSource }: IProps) {
         >
           <S.CustomImage>
             <Image
-              src={dataSource.avatar}
+              src={dataSource.avatar == null ? "" : dataSource.avatar}
               width={400}
               height={500}
               alt="avatar"
@@ -47,7 +47,7 @@ function MemberCard({ dataSource }: IProps) {
                 fontSize: "16px",
                 fontWeight: 600,
               }}>
-            {dataSource.positionId.name}
+            {dataSource.positionId !== null ? dataSource?.positionId?.name : "Chưa cập nhật"}
           </Typography>
         </S.TextWrapper>
       </S.ItemWrapper>

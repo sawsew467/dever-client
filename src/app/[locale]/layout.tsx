@@ -6,9 +6,9 @@ import Providers from "@/providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Phòng khảo thí",
-  description: "Trang quản trị phòng khảo thí",
-  icons: "/icons/layout/logo.svg",
+  title: "Fu - Dever",
+  description: "Fu-Dever dashboard cho thành viên",
+  icons: "/icons/layout/fu-dever-logo.png",
 };
 
 export default async function RootLayout({

@@ -9,7 +9,7 @@ const nextConfig = {
   },
   reactStrictMode: false,
   images: {
-    domains: ["res.cloudinary.com", "aiartshop.com", "th.bing.com", "i.ibb.co"],
+    domains: ["res.cloudinary.com", "aiartshop.com", "th.bing.com", "i.ibb.co", "img-cdn.pixlr.com"],
   },
 };
 

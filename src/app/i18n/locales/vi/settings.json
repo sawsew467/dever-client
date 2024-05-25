@@ -1,3 +1,9 @@
 {
-    "title": "Chỉnh sửa trang cá nhân"
+    "title": "Chỉnh sửa trang cá nhân",
+    "notSetYet": "Chưa cập nhật",
+    "noContent": "Không có nội dung",
+    "update": "Cập nhật",
+    "aboutMe": "Mô tả bản thân",
+    "settingsProfile": "Chỉnh sửa thông tin cá nhân",
+    "changeAvatar": "Đổi ảnh"
 }

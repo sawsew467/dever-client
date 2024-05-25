@@ -25,6 +25,7 @@ function ContactChange({ isUserProfileLoading, userData }: IProps) {
   const onFinish: FormProps<IUpdateData>["onFinish"] = async (values) => {
     try {
       const res: any = await updateUserProfile(values).unwrap();
+      message.success("Cập nhật thành công")
     } catch (error) {
       message.error("Cập nhật xảy ra lỗi");
     }
@@ -41,7 +42,7 @@ function ContactChange({ isUserProfileLoading, userData }: IProps) {
 
   return (
     <S.LGalleryCol>
-      <Card bordered={false}>
+      <Card>
         {isUserProfileLoading ? <Skeleton/> : <S.ContentWrapper>
           <Typography.Title level={3}>Thông tin liên hệ</Typography.Title>
 

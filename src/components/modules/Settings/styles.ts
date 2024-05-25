@@ -49,7 +49,7 @@ export const RGalleryCol = styled.div`
   -ms-flex: 70%;
   flex: 70%;
   max-width: 70%;
-  padding: 0 16px;
+  padding-left: 16px;
 `;
 
 export const AvatarEditorWrapper = styled.div`

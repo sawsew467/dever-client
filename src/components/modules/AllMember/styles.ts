@@ -9,22 +9,30 @@ export const PageWrapper = styled.section`
   width: 100%;
   height: 100%;
 
-  padding-bottom: 16px;
+  gap: 16px;
 `;
 
 
 export const Head = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 24px;
+  @media ${props => props.theme.breakpoints.smMax} {
+    flex-direction: column;
+    gap: 16px;
+  }
+
 `;
 
 export const CustomContent = styled(Content)`
     background: white;
     border-radius: 16px;
-    padding: 20px;
+    overflow: auto;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
 `
 
 export const ComponentsWrapper = styled.div`

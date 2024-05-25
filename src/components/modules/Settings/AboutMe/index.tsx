@@ -5,6 +5,8 @@ import { Button, Card, Form, message, Skeleton, Typography } from "antd";
 import CustomEditor from "@/components/core/common/CustomEditor";
 import { useUpdateUserProfileMutation } from "@/store/queries/settings";
 import { EditOutlined } from "@ant-design/icons";
+import { useParams } from "next/navigation";
+import { useTranslation } from "@/app/i18n/client";
 
 interface IProps {
   isUserProfileFetching: boolean;
@@ -17,7 +19,9 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [isUpdateSuccess, setIsUpdateSuccess] = useState<boolean>(false);
   const [updateUserProfile, { isLoading }] = useUpdateUserProfileMutation();
-  console.log(textEditorData);
+
+  const params = useParams();
+  const { t } = useTranslation(params?.locale as string, "settings");
 
   const handleSubmitDescription = async () => {
     try {
@@ -27,6 +31,7 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
       await updateUserProfile(data).unwrap();
       setIsUpdateSuccess(true);
       setIdleText(textEditorData);
+      message.success("Cập nhật thành công")
     } catch (error) {
       setIsUpdateSuccess(false);
       const err = new Error("Some error");
@@ -35,14 +40,14 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
   };
 
   return (
-    <S.RGalleryCol>
-      <Card bordered={false}>
+    <div>
+      <Card>
         <S.ContentWrapper>
           {isUserProfileFetching ? (
             <Skeleton />
           ) : (
             <>
-              <Typography.Title level={3}>Mô tả bản thân</Typography.Title>
+              <Typography.Title level={3}>{t("aboutMe")}</Typography.Title>
 
               <Typography.Text>
                 <div
@@ -83,13 +88,13 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
                 loading={isLoading}
                 onClick={handleSubmitDescription}
               >
-                Cập nhật
+                {t("update")}
               </Button>
             </Form>
           )}
         </S.ContentWrapper>
       </Card>
-    </S.RGalleryCol>
+    </div>
   );
 }
 

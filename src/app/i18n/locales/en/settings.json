@@ -1,3 +1,9 @@
 {
-    "title": "Your's profile settings"
+    "title": "Your's profile settings",
+    "notSetYet": "Not set yet",
+    "noContent": "No content",
+    "update": "Update",
+    "aboutMe": "About me",
+    "settingsProfile": "Settings profile",
+    "changeAvatar": "Change avatar"
 }

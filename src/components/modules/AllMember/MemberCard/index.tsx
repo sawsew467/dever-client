@@ -4,12 +4,16 @@ import * as S from "./styles";
 import { UserInfo } from "@/helpers/types/userTypes";
 import Image from "next/image";
 import { Typography } from "antd";
+import { useParams } from "next/navigation";
+import { useTranslation } from "@/app/i18n/client";
 
 interface IProps {
   dataSource: UserInfo;
 }
 
 function MemberCard({ dataSource }: IProps) {
+  const params = useParams();
+  const { t } = useTranslation(params?.locale as string, "allMember");
   return (
     <S.ComponentsWrapper>
       <S.ItemWrapper>
@@ -30,24 +34,22 @@ function MemberCard({ dataSource }: IProps) {
                 objectFit: "cover",
               }}
             ></Image>
-            <S.Gen>Gen {dataSource.gen}</S.Gen>
+            {
+              dataSource.gen && <S.Gen>Gen {dataSource.gen}</S.Gen>
+            }
           </S.CustomImage>
         </div>
         <S.TextWrapper>
-          <Typography
-            style={{
-              fontSize: "24px",
-              fontWeight: 700,
-            }}
+          <Typography.Title level={5} style={{fontWeight: "800"}}
           >
             {dataSource.firstname} {dataSource.lastname}
-          </Typography>
+          </Typography.Title>
           <Typography
              style={{
                 fontSize: "16px",
-                fontWeight: 600,
+                fontWeight: 400,
               }}>
-            {dataSource.positionId !== null ? dataSource?.positionId?.name : "Chưa cập nhật"}
+            {dataSource.positionId !== null ? t(dataSource?.positionId?.constant) : ""}
           </Typography>
         </S.TextWrapper>
       </S.ItemWrapper>

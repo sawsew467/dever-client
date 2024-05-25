@@ -13,9 +13,9 @@ export const userDropdownMenu: MenuProps["items"] = [
     label: "profile",
   },
   {
-    key: "setting",
+    key: "settings",
     icon: React.createElement(SettingOutlined),
-    label: "setting",
+    label: "settings",
   },
   {
     type: "divider",

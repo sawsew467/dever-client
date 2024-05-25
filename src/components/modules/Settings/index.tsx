@@ -41,10 +41,13 @@ function SettingsModules() {
       </S.Head>
       <S.CustomContent>
         <S.Gallery>
-          <AvatarChange isProfileFetching={isFetching} userData={result}/>
-          <AboutMe isUserProfileFetching={isFetching} userData={result}/>
-          <ContactChange isUserProfileLoading={isFetching} userData={result}/>
-          
+          <S.LGalleryCol>
+            <AvatarChange isProfileFetching={isFetching} userData={result} />
+          </S.LGalleryCol>
+
+          <S.RGalleryCol>
+            <AboutMe isUserProfileFetching={isFetching} userData={result} />
+          </S.RGalleryCol>
         </S.Gallery>
       </S.CustomContent>
     </S.PageWrapper>

@@ -1,3 +1,20 @@
 {
-    "title": "Tất cả thành viên"
+    "title": "Tất cả thành viên",
+    "THUKYBANSUKIEN": "Thư ký bang sự kiện",
+    "MEMBER": "Thành viên",
+    "CHUNHIEM": "Chủ nhiệm",
+    "THUKY": "Thư ký",
+    "PHOCHUNHIEM": "Phó chủ nhiệm",
+    "TRUONGBANHOCTHUAT": "Trưởng bang học thuật",
+    "PHOBANHOCTHUAT": "Phó bang học thuật",
+    "THUKYBANHOCTHUAT": "Thư ký ban học thuật",
+    "TRUONGBANSUKIEN": "Trưởng ban sự kiện",
+    "PHOBANSUKIEN": "Phó bang sự kiện",
+    "TRUONGBANTRUYENTHONG": "Trưởng bang truyền thông",
+    "PHOBANTRUYENTHONG": "Phó bang truyền thông",
+    "THUKYBANTRUYENTHONG": "Thư ký bang truyền thông",
+    "FRONTENDLEAD": "Front-End Lead",
+    "BACKENDLEAD": "Back-End Lead",
+
+    "notSetYet": "Chưa cập nhật"
 }

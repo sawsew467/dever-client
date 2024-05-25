@@ -19,8 +19,13 @@ export const ButtonWrap = styled.div<{ $collapsed: boolean }>`
   transform: scaleX(${(props) => (props?.$collapsed ? -1 : 1)});
 `;
 
+export const ContainerLayoutCustom = styled(Layout)`
+  height: 100vh;
+`;
+
 export const LayoutCustom = styled(Layout)`
    padding: 16px 16px !important;
+
    background: ${props  => props.theme.colors?.backgroundPrimary} !important;
 
    @media ${props => props.theme.breakpoints.smMax} {
@@ -31,8 +36,11 @@ export const LayoutCustom = styled(Layout)`
 export const SiderCustom = styled(Sider)`
     background:#fff !important;
     padding: 12px 0px;
+
     position: static !important;
+
     z-index: 1;
+
     @media ${props => props.theme.breakpoints.smMax} {
       position: absolute !important;
     }
@@ -57,27 +65,37 @@ export const HeaderCustom = styled(Header)`
   display: flex;
   align-items: center;
   justify-content: space-between !important;
+
   padding: 0px 16px !important;
+  
   position: static !important;
   top: 0;
+  
   z-index: 10;
+  
   background: #fff !important;
-  user-select: none;
   box-shadow: #0098ff33 0px 1px 10px;
+
+  user-select: none;
+
 `;
 
 export const ContentCustom = styled(Layout.Content)`
   padding: 16px;
   margin: 0;
+  border-radius: 12px; 
+
   min-height: 200;
+
   background-color: #fff;
-  border-radius: 12px;
+
   overflow: auto;
 `;
 
 export const FooterCustom = styled(Layout.Footer)`
   background-color: ${(props) =>
     props?.theme?.colors?.backgroundSecondary} !important;
+
   margin-top: 16px;
   border-radius: 12px;
   padding: 16px 16px !important ;

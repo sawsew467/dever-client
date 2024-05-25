@@ -1,17 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import * as S from "./styles";
+
 import { Button, Card, message, Skeleton, Typography, Upload } from "antd";
-import { CloudUploadOutlined } from "@ant-design/icons";
-import { UserInfo } from "@/helpers/types/userTypes";
 import Image from "next/image";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useParams } from "next/navigation";
+
+import { CloudUploadOutlined } from "@ant-design/icons";
+import { UserInfo } from "@/helpers/types/userTypes";
 import { useUpdateUserProfileMutation } from "@/store/queries/settings";
 import webStorageClient from "@/utils/webStorageClient";
 import { constants } from "@/settings";
-import { useDispatch } from "react-redux";
 import { applyChangeAvatar } from "@/store/slices/auth";
-import { useParams } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
 
 interface IProps {

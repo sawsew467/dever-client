@@ -1,11 +1,13 @@
 import React, { use, useState } from "react";
 import * as S from "./styles";
-import { UserInfo } from "@/helpers/types/userTypes";
+
 import { Button, Card, Form, message, Skeleton, Typography } from "antd";
+import { useParams } from "next/navigation";
+
+import { UserInfo } from "@/helpers/types/userTypes";
 import CustomEditor from "@/components/core/common/CustomEditor";
 import { useUpdateUserProfileMutation } from "@/store/queries/settings";
 import { EditOutlined } from "@ant-design/icons";
-import { useParams } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
 
 interface IProps {

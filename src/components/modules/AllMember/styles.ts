@@ -28,9 +28,12 @@ export const Head = styled.div`
 
 export const CustomContent = styled(Content)`
     background: white;
+
     border-radius: 16px;
+
     overflow: auto;
     overflow-x: hidden;
+    
     display: flex;
     justify-content: center;
 `

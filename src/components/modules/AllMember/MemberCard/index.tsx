@@ -1,10 +1,12 @@
 import React from "react";
 
 import * as S from "./styles";
-import { UserInfo } from "@/helpers/types/userTypes";
+
 import Image from "next/image";
 import { Typography } from "antd";
 import { useParams } from "next/navigation";
+
+import { UserInfo } from "@/helpers/types/userTypes";
 import { useTranslation } from "@/app/i18n/client";
 
 interface IProps {

@@ -1,39 +1,28 @@
 "use client";
 
-import React, { useCallback, useLayoutEffect, useState } from "react";
-import Image from "next/image";
-import {
-  LaptopOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  NotificationOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { Button, Flex, Grid, Layout, Menu, Popover, message } from "antd";
-import { useParams, usePathname } from "next/navigation";
-import { AppProgressBar, useRouter } from "next-nprogress-bar";
+import { Flex, Grid, Layout, Popover, message } from "antd";
 import { useLocale } from "next-intl";
+import { useRouter } from "next-nprogress-bar";
+import Image from "next/image";
+import { useParams, usePathname } from "next/navigation";
+import React, { useCallback, useLayoutEffect, useState } from "react";
 
+import LoadingScreen from "../../common/LoadingScreen";
+import Typography from "../../common/Typography";
 import DropdownMenu from "./DropdownMenu";
 import SelectLanguage from "./SelectLanguage";
-import Typography from "../../common/Typography";
-import LoadingScreen from "../../common/LoadingScreen";
 
-import { sidebarMenu } from "@/helpers/data/sidebarMenu";
 import { useTranslation } from "@/app/i18n/client";
-import { themes } from "@/style/themes";
+import { sidebarMenu } from "@/helpers/data/sidebarMenu";
 import { useVerifyTokenMutation } from "@/store/queries/auth";
+import { themes } from "@/style/themes";
 import webStorageClient from "@/utils/webStorageClient";
-import { getRootPathname } from "@/utils/getPathname";
-import themeColors from "@/style/themes/default/colors";
 
-import * as S from "./styles";
-import { Content, Header } from "antd/es/layout/layout";
-import Sider from "antd/es/layout/Sider";
 import { constants } from "@/settings";
-import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { assignUserInfo } from "@/store/slices/auth";
+import { useDispatch, useSelector } from "react-redux";
+import * as S from "./styles";
 
 const MainLayout = ({
   children,
@@ -48,8 +37,6 @@ const MainLayout = ({
   const screens = useBreakpoint();
   const dispatch = useDispatch();
 
-  console.log(screens);
-
   const { userInfo } = useSelector((state: RootState) => state.auth);
   const { t } = useTranslation(params?.locale as string, "layout");
 
@@ -63,8 +50,6 @@ const MainLayout = ({
   const fname = webStorageClient.get(constants.FN);
   const lname = webStorageClient.get(constants.LN);
   const avatar = webStorageClient.get(constants.AVT);
-  
-  console.log(avatar);
 
   const handleVerifyToken = useCallback(async () => {
     try {
@@ -111,10 +96,7 @@ const MainLayout = ({
       {!isAuth ? (
         <LoadingScreen />
       ) : (
-        <Layout
-          style={{
-            height: "100vh",
-          }}
+        <S.ContainerLayoutCustom
         >
           <S.HeaderCustom>
             <S.HeaderContainerWrapper>
@@ -194,7 +176,7 @@ const MainLayout = ({
               </S.FooterCustom>
             </S.LayoutCustom>
           </Layout>
-        </Layout>
+        </S.ContainerLayoutCustom>
       )}
     </>
   );

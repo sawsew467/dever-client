@@ -1,20 +1,19 @@
 "use client";
 
 import React from "react";
-import { useParams, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
-import { useTranslation } from "@/app/i18n/client";
-
 import * as S from "./styles";
-import { Col, Grid, Row, Spin, Typography } from "antd";
-import { Content } from "antd/es/layout/layout";
-import Search from "antd/es/input/Search";
-import { AudioOutlined, FilterOutlined } from "@ant-design/icons";
-import { useGetAllUsersQuery } from "@/store/queries/allMember";
-import { UserInfo } from "@/helpers/types/userTypes";
 import MemberCard from "./MemberCard";
+
+import { Col, Grid, Row, Spin, Typography } from "antd";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import Search from "antd/es/input/Search";
 import _ from "lodash";
+
+import { useTranslation } from "@/app/i18n/client";
+import { UserInfo } from "@/helpers/types/userTypes";
+import { useGetAllUsersQuery } from "@/store/queries/allMember";
 import { createQueryString } from "@/utils/queryString";
+import { FilterOutlined } from "@ant-design/icons";
 
 function AllMemberModule() {
   const params = useParams();

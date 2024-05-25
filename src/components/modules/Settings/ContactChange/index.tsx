@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
+
 import { Button, Card, Form, Input, message, Skeleton, Typography } from "antd";
-import { UserInfo } from "@/helpers/types/userTypes";
 import { FormProps, useForm } from "antd/es/form/Form";
+
+import { UserInfo } from "@/helpers/types/userTypes";
 import { useUpdateUserProfileMutation } from "@/store/queries/settings";
 
 interface IProps {

@@ -44,6 +44,10 @@ export const authSlice = createSlice({
     },
     applyChangeAvatar: (state, action: PayloadAction<string>) => {
       state.userInfo.avatar = action.payload;
+    },
+    applyChangeName: (state, action: PayloadAction<{firstname: string, lastname:string}>) => {
+     state.userInfo.firstname = action.payload.firstname;
+     state.userInfo.lastname = action.payload.lastname;
     }
   },
   extraReducers: (builder) => {
@@ -67,6 +71,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { actionLogin, assignUserInfo, applyChangeAvatar } = authSlice.actions;
+export const { actionLogin, assignUserInfo, applyChangeAvatar, applyChangeName } = authSlice.actions;
 
 export default authSlice.reducer;

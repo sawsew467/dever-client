@@ -28,78 +28,84 @@ function AllMemberModule() {
 
   const { t } = useTranslation(params?.locale as string, "allMember");
 
-  const {result, total, isFetching, refetch} = useGetAllUsersQuery(
+  const { result, total, isFetching, refetch } = useGetAllUsersQuery(
     {
-        page: page,
-        page_size: 10,
-        search: search,
+      page: page,
+      page_size: 10,
+      search: search,
     },
     {
-        selectFromResult: ({ data, isFetching }) => {
-            const newDataUsers = data?.data?.users?.map((user: any) => ({
-              name: `${user?.firstname} ${user?.lastname}`,
-              ...user,
-            }));
-            return {
-              result: data?.data?.users ?? [],
-              total: data?.result ?? 0,
-              isFetching,
-            };
-          }, 
+      selectFromResult: ({ data, isFetching }) => {
+        const newDataUsers = data?.data?.users?.map((user: any) => ({
+          name: `${user?.firstname} ${user?.lastname}`,
+          ...user,
+        }));
+        return {
+          result: data?.data?.users ?? [],
+          total: data?.result ?? 0,
+          isFetching,
+        };
+      },
     }
-  );  
-  
+  );
+
   const handleSearch = _.debounce((e: React.ChangeEvent<HTMLInputElement>) => {
     router.push(createQueryString("search", `${e?.target?.value}`));
   }, 300);
 
   const handleFillGridEntryScreen = () => {
-    if(screens.xl) return 3;
-    if(screens.lg) return 6;
-    if(screens.md) return 6;
-    if(screens.sm) return 8;
-    if(screens.xs) return 12;
-  }
+    if (screens.xl) return 3;
+    if (screens.lg) return 6;
+    if (screens.md) return 6;
+    if (screens.sm) return 8;
+    if (screens.xs) return 12;
+  };
 
   return (
     <S.PageWrapper>
       <S.Head>
-        <Typography.Title level={3} style={{fontWeight: 700}}>{t("title")}</Typography.Title>
+        <Typography.Title level={3} style={{ fontWeight: 700 }}>
+          {t("title")}
+        </Typography.Title>
         <S.ItemWrapper>
-            <Search
-              placeholder="Enter member name..."
-              size="large"
-              onChange={handleSearch}
-              defaultValue={search}
+          <Search
+            placeholder="Enter member name..."
+            size="large"
+            onChange={handleSearch}
+            defaultValue={search}
+          />
+          <S.FilterWrapper>
+            <FilterOutlined
+              style={{
+                fontSize: "20px",
+              }}
             />
-            <S.FilterWrapper>
-                <FilterOutlined style={{
-                    fontSize: "20px",
-                }}/>                
-            </S.FilterWrapper>
-          </S.ItemWrapper>
+          </S.FilterWrapper>
+        </S.ItemWrapper>
       </S.Head>
       <S.CustomContent>
         <S.ComponentsWrapper>
-         
-            {isFetching ? 
+          {isFetching ? (
             <>
-                <div style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center"
-                }}>
-                    <Spin size="large"></Spin>
-                </div>
+              <S.SpinWrapper>
+                <Spin size="large"></Spin>
+              </S.SpinWrapper>
             </>
-            : <Row gutter={16} >
-            {result.map((item:UserInfo, index:number) => {
+          ) : (
+            <Row gutter={16}>
+              {result.map((item: UserInfo, index: number) => {
                 return (
-                    <Col className="gutter-row" span={handleFillGridEntryScreen()} key={index}><MemberCard dataSource={item} ></MemberCard></Col>
-                )
-               })}
-            </Row>}
+                  <Col
+                    className="gutter-row"
+                    span={handleFillGridEntryScreen()}
+                    key={index}
+                  >
+                    <MemberCard dataSource={item}></MemberCard>
+                  </Col>
+                );
+              })}
+            </Row>
+          )}
         </S.ComponentsWrapper>
       </S.CustomContent>
     </S.PageWrapper>

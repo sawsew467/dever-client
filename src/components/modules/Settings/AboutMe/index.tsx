@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import * as S from "./styles";
 
 import { Button, Card, Form, message, Skeleton, Typography } from "antd";
@@ -25,6 +25,10 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
   const params = useParams();
   const { t } = useTranslation(params?.locale as string, "settings");
 
+  useEffect(() => {
+    setTextEditorData(userData.description!);
+  }, [userData]);
+
   const handleSubmitDescription = async () => {
     try {
       const data = {
@@ -33,17 +37,17 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
       await updateUserProfile(data).unwrap();
       setIsUpdateSuccess(true);
       setIdleText(textEditorData);
-      message.success("Cập nhật thành công")
+      message.success(t('updateSuccess'));
     } catch (error) {
       setIsUpdateSuccess(false);
       const err = new Error("Some error");
-      message.error("Cập nhật không thành công");
+      message.error(t('updateError'));
     }
   };
 
   return (
-    <div>
-      <Card>
+    <S.ContentWrapperDiv>
+      <S.CustomCard>
         <S.ContentWrapper>
           {isUserProfileFetching ? (
             <Skeleton />
@@ -95,8 +99,8 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
             </Form>
           )}
         </S.ContentWrapper>
-      </Card>
-    </div>
+      </S.CustomCard>
+    </S.ContentWrapperDiv>
   );
 }
 

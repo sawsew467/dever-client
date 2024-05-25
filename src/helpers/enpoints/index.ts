@@ -15,7 +15,11 @@ const endpointAllMember = {
 
 const endpointSettings = {
   GET_PROFILE: `${prefixBase}/users/{id}`,
-  EDIT_PROFILE: `${prefixBase}/edit-profile`
+  EDIT_PROFILE: `${prefixBase}/edit-profile`,
+  SOCIAL_ENUMS: `${prefixBase}/social`,
+  POSITION_ENUMS: `${prefixBase}/position`,
+  DEPARTMENT_ENUMS: `${prefixBase}/department`,
+  MAJOR_ENUMS: `${prefixBase}/major`
 }
 
 const endpointUsersManagement = {

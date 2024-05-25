@@ -36,6 +36,7 @@ const MainLayout = ({
   const { useBreakpoint } = Grid;
   const screens = useBreakpoint();
   const dispatch = useDispatch();
+  const [verifyToken] = useVerifyTokenMutation();
 
   const { userInfo } = useSelector((state: RootState) => state.auth);
   const { t } = useTranslation(params?.locale as string, "layout");
@@ -44,13 +45,11 @@ const MainLayout = ({
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
   const [isAuth, setIsAuth] = useState<boolean>(false);
 
-  const [verifyToken] = useVerifyTokenMutation();
-
   const email = webStorageClient.get(constants.MAIL);
   const fname = webStorageClient.get(constants.FN);
   const lname = webStorageClient.get(constants.LN);
   const avatar = webStorageClient.get(constants.AVT);
-
+  
   const handleVerifyToken = useCallback(async () => {
     try {
       if (!webStorageClient.get("_access_token")) {
@@ -96,8 +95,7 @@ const MainLayout = ({
       {!isAuth ? (
         <LoadingScreen />
       ) : (
-        <S.ContainerLayoutCustom
-        >
+        <S.ContainerLayoutCustom>
           <S.HeaderCustom>
             <S.HeaderContainerWrapper>
               <S.LogoWrapper>
@@ -159,10 +157,7 @@ const MainLayout = ({
               onCollapse={() => setCollapsed(!collapsed)}
             >
               <S.MenuCustom
-               
                 mode="inline"
-                // defaultSelectedKeys={["all-member"]}
-                // defaultOpenKeys={["all-member"]}
                 onClick={(e) => {
                   router?.push(`/${localActive}/${e?.key}`);
                 }}
@@ -172,7 +167,7 @@ const MainLayout = ({
             <S.LayoutCustom>
               <S.ContentCustom>{children}</S.ContentCustom>
               <S.FooterCustom>
-                <p>COPYRIGHT © 2024 DashTail All rights Reserved</p>
+                <p>COPYRIGHT © 2024 FU-DEVER All rights Reserved</p>
               </S.FooterCustom>
             </S.LayoutCustom>
           </Layout>

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 
-import { Button, Card, message, Skeleton, Typography, Upload } from "antd";
+import { Button, Card, Grid, message, Skeleton, Typography, Upload } from "antd";
 import Image from "next/image";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -64,17 +64,17 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
         updateUserProfile(data).unwrap();
         webStorageClient.set(constants.AVT, res?.data?.data?.url);
         dispatch(applyChangeAvatar(res?.data?.data?.url))
-        message.success("Update avatar thành công");
+        message.success(t("updateSuccess"));
       }
       setIsUploading(false);
     } catch (err) {
-      const error = new Error("Some error");
+      const error = new Error(t("updateError"));
       onError({ error });
     }
   };
   return (
     <S.ContentWrapper>
-      <Card>
+      <S.CustomCard>
         <S.AvatarEditorWrapper>
           <div>
             {isProfileFetching || isUploading ? (
@@ -95,7 +95,7 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
                   objectFit: "cover",
                   width: 125,
                   height: 125,
-                  borderRadius: "12px",
+                  borderRadius: "8px",
                 }}
               />
             )}
@@ -148,7 +148,7 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
             </Upload>
           </S.Wrapper>
         </S.AvatarEditorWrapper>
-      </Card>
+      </S.CustomCard>
     </S.ContentWrapper>
   );
 }

@@ -1,10 +1,14 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import * as S from "./styles";
-import { UserInfo } from "@/helpers/types/userTypes";
+
 import { Button, Card, Form, message, Skeleton, Typography } from "antd";
+import { useParams } from "next/navigation";
+
+import { UserInfo } from "@/helpers/types/userTypes";
 import CustomEditor from "@/components/core/common/CustomEditor";
 import { useUpdateUserProfileMutation } from "@/store/queries/settings";
 import { EditOutlined } from "@ant-design/icons";
+import { useTranslation } from "@/app/i18n/client";
 
 interface IProps {
   isUserProfileFetching: boolean;
@@ -17,7 +21,13 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [isUpdateSuccess, setIsUpdateSuccess] = useState<boolean>(false);
   const [updateUserProfile, { isLoading }] = useUpdateUserProfileMutation();
-  console.log(textEditorData);
+
+  const params = useParams();
+  const { t } = useTranslation(params?.locale as string, "settings");
+
+  useEffect(() => {
+    setTextEditorData(userData.description!);
+  }, [userData]);
 
   const handleSubmitDescription = async () => {
     try {
@@ -27,31 +37,33 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
       await updateUserProfile(data).unwrap();
       setIsUpdateSuccess(true);
       setIdleText(textEditorData);
+      setIsEdit(false);
+      message.success(t('updateSuccess'));
     } catch (error) {
       setIsUpdateSuccess(false);
       const err = new Error("Some error");
-      message.error("Cập nhật không thành công");
+      message.error(t('updateError'));
     }
   };
 
   return (
-    <S.RGalleryCol>
-      <Card bordered={false}>
+    <S.ContentWrapperDiv>
+      <S.CustomCard>
         <S.ContentWrapper>
           {isUserProfileFetching ? (
             <Skeleton />
           ) : (
             <>
-              <Typography.Title level={3}>Mô tả bản thân</Typography.Title>
+              <Typography.Title level={3}>{t("aboutMe")}</Typography.Title>
 
               <Typography.Text>
-                <div
+                <S.HtmlRenderWrapper
                   dangerouslySetInnerHTML={{
                     __html: `${
                       isUpdateSuccess ? idleText : userData.description
                     }`,
                   }}
-                ></div>
+                ></S.HtmlRenderWrapper>
               </Typography.Text>
 
               <Button
@@ -75,7 +87,7 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
             >
               <CustomEditor
                 getData={setTextEditorData}
-                data={userData.description}
+                data={isUpdateSuccess? idleText : userData.description}
               />
               <Button
                 type="primary"
@@ -83,13 +95,13 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
                 loading={isLoading}
                 onClick={handleSubmitDescription}
               >
-                Cập nhật
+                {t("update")}
               </Button>
             </Form>
           )}
         </S.ContentWrapper>
-      </Card>
-    </S.RGalleryCol>
+      </S.CustomCard>
+    </S.ContentWrapperDiv>
   );
 }
 

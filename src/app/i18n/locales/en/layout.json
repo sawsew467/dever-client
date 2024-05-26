@@ -9,5 +9,14 @@
   "imageActivityManagement": "Image Activity Management",
 
   "english": "English",
-  "vietnamese": "Vietnamese"
+  "vietnamese": "Vietnamese",
+
+  "profile": "Profile",
+  "settings": "Settings",
+  "logout": "Log out",
+
+  "account-verifying": "Account verifying",
+
+  "token_not_valid": "You are not authorized to access this resource",
+  "checkedAccess": "Successful access check"
 }

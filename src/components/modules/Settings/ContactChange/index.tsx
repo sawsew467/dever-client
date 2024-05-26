@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
+
 import { Button, Card, Form, Input, message, Skeleton, Typography } from "antd";
-import { UserInfo } from "@/helpers/types/userTypes";
 import { FormProps, useForm } from "antd/es/form/Form";
+
+import { UserInfo } from "@/helpers/types/userTypes";
 import { useUpdateUserProfileMutation } from "@/store/queries/settings";
+import { useTranslation } from "@/app/i18n/client";
+import { useParams } from "next/navigation";
 
 interface IProps {
   isUserProfileLoading: boolean;
@@ -16,21 +20,21 @@ interface IUpdateData {
 }
 
 function ContactChange({ isUserProfileLoading, userData }: IProps) {
+  const params = useParams();
+  const [myForm] = Form.useForm();
   const [updateUserProfile, { isLoading }] = useUpdateUserProfileMutation();
-  const [updateData, setUpdateData] = useState<IUpdateData>({
-    nickname: userData.nickname,
-    phone: userData.phone,
-  });
+  const { t } = useTranslation(params?.locale as string, "settings");
+
 
   const onFinish: FormProps<IUpdateData>["onFinish"] = async (values) => {
     try {
       const res: any = await updateUserProfile(values).unwrap();
+      message.success(t("updateSuccess"))
     } catch (error) {
-      message.error("Cập nhật xảy ra lỗi");
+      message.error(t("updateError"));
     }
   };
 
-  const [myForm] = Form.useForm();
 
   useEffect(() => {
     myForm.setFieldsValue({
@@ -40,10 +44,10 @@ function ContactChange({ isUserProfileLoading, userData }: IProps) {
   }, [userData]);
 
   return (
-    <S.LGalleryCol>
-      <Card bordered={false}>
+    <S.ContainerWrapper>
+      <S.CustomCard>
         {isUserProfileLoading ? <Skeleton/> : <S.ContentWrapper>
-          <Typography.Title level={3}>Thông tin liên hệ</Typography.Title>
+          <Typography.Title level={3}>{t("contact")}</Typography.Title>
 
           <Form
             name="basic"
@@ -52,36 +56,36 @@ function ContactChange({ isUserProfileLoading, userData }: IProps) {
             form={myForm}
           >
             <Form.Item<IUpdateData>
-              label="Số điện thoại"
+              label={t("phonenumber")}
               name="phone"
               wrapperCol={{ span: 24 }}
-              rules={[{ required: true, message: "Không được để trống" }]}
+              rules={[{ required: true, message: t("cantBeEmpty") }]}
             >
-              <Input placeholder="Nhập số điện thoại" />
+              <Input placeholder={t("enterPhoneNumber")} />
             </Form.Item>
             <Form.Item<IUpdateData>
-              label="Nickname"
+              label={t("nickname")}
               name="nickname"
               wrapperCol={{ span: 24 }}
-              rules={[{ required: true, message: "Không được để trống" }]}
+              rules={[{ required: true, message: t("enterPhoneNumber") }]}
             >
-              <Input placeholder="Nhập nickname" />
+              <Input placeholder={t("enterNickname")} />
             </Form.Item>
-
-            <Form.Item>
+            
+            <S.FormItemNotMB>
               <Button
                 type="primary"
                 style={{ width: "fit-content" }}
                 htmlType="submit"
                 loading={isLoading}
               >
-                Cập nhật
+                {t("update")}
               </Button>
-            </Form.Item>
+            </S.FormItemNotMB>
           </Form>
         </S.ContentWrapper>}
-      </Card>
-    </S.LGalleryCol>
+      </S.CustomCard>
+    </S.ContainerWrapper>
   );
 }
 

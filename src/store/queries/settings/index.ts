@@ -26,7 +26,48 @@ export const authAPI = baseApi.injectEndpoints({
         flashError: true,
       }),
     }),
+
+    getSocialEnums: build.query<any, any>({
+      query: (params) => ({
+        url: endpointSettings.SOCIAL_ENUMS,
+        method: "GET",
+        params: params,
+        flashError: true,
+      }),
+    }),
+
+    getPositionEnums: build.query<any, any>({
+      query: (params) => ({
+        url: endpointSettings.POSITION_ENUMS,
+        method: "GET",
+        params: params,
+        flashError: true,
+      }),
+    }),
+    getDepartmentEnums: build.query<any, any>({
+      query: (params) => ({
+        url: endpointSettings.DEPARTMENT_ENUMS,
+        method: "GET",
+        params: params,
+        flashError: true,
+      }),
+    }),
+    getMajorEnums: build.query<any, any>({
+      query: (params) => ({
+        url: endpointSettings.MAJOR_ENUMS,
+        method: "GET",
+        params: params,
+        flashError: true,
+      }),
+    }),
   }),
 });
 
-export const { useGetMyProfileQuery, useUpdateUserProfileMutation } = authAPI;
+export const {
+  useGetMyProfileQuery,
+  useUpdateUserProfileMutation,
+  useGetSocialEnumsQuery,
+  useGetPositionEnumsQuery,
+  useGetDepartmentEnumsQuery,
+  useGetMajorEnumsQuery
+} = authAPI;

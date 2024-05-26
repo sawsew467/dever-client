@@ -1,15 +1,21 @@
 import React from "react";
 
 import * as S from "./styles";
-import { UserInfo } from "@/helpers/types/userTypes";
+
 import Image from "next/image";
-import { Typography } from "antd";
+import { useParams } from "next/navigation";
+
+import { UserInfo } from "@/helpers/types/userTypes";
+import { useTranslation } from "@/app/i18n/client";
+import Typography from "@/components/core/common/Typography";
 
 interface IProps {
   dataSource: UserInfo;
 }
 
 function MemberCard({ dataSource }: IProps) {
+  const params = useParams();
+  const { t } = useTranslation(params?.locale as string, "allMember");
   return (
     <S.ComponentsWrapper>
       <S.ItemWrapper>
@@ -30,25 +36,18 @@ function MemberCard({ dataSource }: IProps) {
                 objectFit: "cover",
               }}
             ></Image>
-            <S.Gen>Gen {dataSource.gen}</S.Gen>
+            {dataSource.gen && <S.Gen>Gen {dataSource.gen}</S.Gen>}
           </S.CustomImage>
         </div>
         <S.TextWrapper>
-          <Typography
-            style={{
-              fontSize: "24px",
-              fontWeight: 700,
-            }}
-          >
-            {dataSource.firstname} {dataSource.lastname}
-          </Typography>
-          <Typography
-             style={{
-                fontSize: "16px",
-                fontWeight: 600,
-              }}>
-            {dataSource.positionId !== null ? dataSource?.positionId?.name : "Chưa cập nhật"}
-          </Typography>
+          <Typography.Title level={5} $fontWeight={700} $align="center">
+            {dataSource.firstname}
+          </Typography.Title>
+          <Typography.Text $align="center">
+            {dataSource.positionId !== null
+              ? t(dataSource?.positionId?.constant)
+              : ""}
+          </Typography.Text>
         </S.TextWrapper>
       </S.ItemWrapper>
     </S.ComponentsWrapper>

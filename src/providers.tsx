@@ -40,7 +40,14 @@ function Providers({
                     headerColor: themes.default.colors.textWhite,
                     headerBorderRadius: 0,
                   },
-                },
+                  InputNumber: {
+                    inputFontSize: 14,
+                    controlHeight: 40
+                  },
+                  Select: {
+                    controlHeight: 40
+                  }
+                },  
                 token: {
                   colorPrimary: themes.default.colors.primary,
                 },

@@ -1,3 +1,44 @@
 {
-    "title": "All members"
+    "title": "All members",
+    "THUKYBANSUKIEN": "Secretary of Events",
+    "MEMBER": "Member",
+    "CHUNHIEM": "President",
+    "THUKY": "Secretary",
+    "PHOCHUNHIEM": "Vice President",
+    "TRUONGBANHOCTHUAT": "Head of Academics",
+    "PHOBANHOCTHUAT": "Deputy Head of Academics",
+    "THUKYBANHOCTHUAT": "Secretary of Academics",
+    "TRUONGBANSUKIEN": "Head of Events",
+    "PHOBANSUKIEN": "Deputy Head of Events",
+    "TRUONGBANTRUYENTHONG": "Head of Communications",
+    "PHOBANTRUYENTHONG": "Deputy Head of Communications",
+    "THUKYBANTRUYENTHONG": "Secretary of Communications",
+    "FRONTENDLEAD": "Front-End Lead",
+    "BACKENDLEAD": "Back-End Lead", 
+
+    "MEDIA": "Media Ban",
+    "EVENT": "Event Ban",
+    "ACADEMIC": "Academic Ban"   , 
+
+    "notSetYet": "Chưa cập nhật",
+
+    "position": "Club position",
+    "enterPosition": "Select  position",
+
+    "department": "Department",
+    "enterDepartment": "Select department",
+
+    "major": "Major",
+    "enterMajor": "Select your major",
+
+    "generation": "Genergation",
+    "enterGeneration": "Select generation",
+
+    
+    "ENGINEERING": "Software Engineering",
+    "SECURITY": "Information security ",
+    "AI": "Artificial intelligence",
+    "DESIGN": "Digital graphic design",
+    "DMARKETING": "Digital marketing"
+    
 }

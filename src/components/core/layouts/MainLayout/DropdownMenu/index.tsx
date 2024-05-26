@@ -11,11 +11,16 @@ import { userDropdownMenu } from "@/helpers/data/userDropdownMenu";
 import webStorageClient from "@/utils/webStorageClient";
 
 import * as S from "./styles";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
+import Typography from "@/components/core/common/Typography";
+import themeColors from "@/style/themes/default/colors";
 
 function DropdownMenu() {
   const params = useParams();
   const router = useRouter();
   const locale = useLocale();
+  const {userInfo} = useSelector((state: RootState) => state.auth)
 
   const { t } = useTranslation(params?.locale as string, "layout");
 
@@ -30,7 +35,7 @@ function DropdownMenu() {
       case "profile":
         console.log("profile");
         break;
-      case "setting":
+      case "settings":
         router.push(`/${locale}/settings`)
         break;
       case "logout":
@@ -49,7 +54,7 @@ function DropdownMenu() {
           size={28}
           src={
             <Image
-              src={"/images/avatar/avatar.jpg"}
+              src={userInfo.avatar != null ? userInfo.avatar : "/images/avatar/avatar.jpg"}
               alt="avatar"
               width={28}
               height={28}
@@ -57,8 +62,8 @@ function DropdownMenu() {
           }
         />
         <Flex vertical>
-          <p>Tran Van Bao Thang</p>
-          <a>@sawsew467</a>
+          <p>{userInfo.firstname! ?? ""} {userInfo.lastname! ?? ""}</p>
+          <Typography.Text $width="150px" $color={themeColors.primary} ellipsis={true} >@{userInfo.email}</Typography.Text >
         </Flex>
       </Flex>
       <Divider $margin={8} />

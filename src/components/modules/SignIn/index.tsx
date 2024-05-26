@@ -38,7 +38,9 @@ function SignInModule() {
 
       console.log(res);
       router?.push(`/${locale}/all-member`);
-    } catch (error) {}
+    } catch (error) {
+      
+    }
   };
 
   return (

@@ -8,8 +8,10 @@ const themeColors = {
 
   secondary: "#e2e8f0",
 
-  backgroundPrimary: "#FFF9F6",
+  backgroundPrimary: "#fafafa",
   backgroundSecondary: "#ffffff",
+
+  borderPrimary: "#d9d9d9",
 
   textNormal: "#000",
   textWhite: "#FFF",

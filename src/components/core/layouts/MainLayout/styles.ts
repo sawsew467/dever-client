@@ -1,24 +1,10 @@
 import styled from "styled-components";
-import { Avatar, Layout } from "antd";
-
-export const SiderCustom = styled(Layout.Sider)`
-  height: 100vh;
-
-  background-color: ${(props) =>
-    props?.theme?.colors?.backgroundSecondary} !important;
-
-  border-right: 1px solid ${(props) => props?.theme?.colors?.secondary} !important;
-
-  position: fixed !important;
-  left: 0;
-  top: 0;
-  bottom: 0;
-
-  overflow: auto;
-`;
+import { Avatar, Layout, Menu } from "antd";
+import { Header } from "antd/es/layout/layout";
+import Sider from "antd/es/layout/Sider";
 
 export const LogoWrapper = styled.div`
-  padding: 16px;
+  padding: 10px;
 `;
 
 export const ButtonWrap = styled.div<{ $collapsed: boolean }>`
@@ -33,49 +19,98 @@ export const ButtonWrap = styled.div<{ $collapsed: boolean }>`
   transform: scaleX(${(props) => (props?.$collapsed ? -1 : 1)});
 `;
 
-export const LayoutCustom = styled(Layout)<{ $collapsed: boolean }>`
-  margin-left: ${(props) => (props?.$collapsed ? "80px" : "200px")};
-
-  background-color: ${(props) =>
-    props?.theme?.colors?.backgroundPrimary} !important;
+export const ContainerLayoutCustom = styled(Layout)`
+  height: 100vh;
 `;
 
-export const HeaderCustom = styled(Layout.Header)<{ $collapsed: boolean }>`
-  width: calc(
-    100% - ${(props) => (props?.$collapsed ? "80px" : "200px")}
-  ) !important;
-  height: auto !important;
+export const LayoutCustom = styled(Layout)`
+   padding: 16px 16px !important;
 
-  padding: 16px !important;
+   background: ${props  => props.theme.colors?.backgroundPrimary} !important;
 
-  background-color: ${(props) =>
-    props?.theme?.colors?.backgroundSecondary} !important;
+   @media ${props => props.theme.breakpoints.smMax} {
+      padding: 0px !important;
+    }        
+`;
 
-  border-bottom: 1px solid ${(props) => props?.theme?.colors?.secondary} !important;
+export const SiderCustom = styled(Sider)`
+    background:#fff !important;
+    padding: 12px 0px;
 
+    position: static !important;
+
+    z-index: 1;
+
+    @media ${props => props.theme.breakpoints.smMax} {
+      position: absolute !important;
+    }
+`;
+
+
+export const MenuCustom = styled(Menu)`
+    background: #fff !important;
+    height: fit-content;
+    border: none !important;
+    @media ${props => props.theme.breakpoints.smMax} {
+      height: calc(100vh - 90px);
+    }
+`;
+
+
+export const HeaderContainerWrapper = styled.div`
+  display: flex;
+`;
+
+export const HeaderCustom = styled(Header)`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between !important;
 
-  position: fixed !important;
-  z-index: 999 !important;
+  padding: 0px 16px !important;
+  
+  position: static !important;
+  top: 0;
+  
+  z-index: 10;
+  
+  background: #fff !important;
+  box-shadow: #0098ff33 0px 1px 10px;
 
-  line-height: normal !important;
+  user-select: none;
+
 `;
 
 export const ContentCustom = styled(Layout.Content)`
-  min-height: 100vh !important;
+  padding: 16px;
+  margin: 0;
+  border-radius: 12px; 
 
-  margin: 89px 16px 0;
+  min-height: 200;
+
+  background-color: #fff;
+
+  overflow: auto;
 `;
 
 export const FooterCustom = styled(Layout.Footer)`
   background-color: ${(props) =>
     props?.theme?.colors?.backgroundSecondary} !important;
 
-  border-top: 1px solid ${(props) => props?.theme?.colors?.secondary} !important;
+  margin-top: 16px;
+  border-radius: 12px;
+  padding: 16px 16px !important ;
 `;
 
 export const AvatarCustom = styled(Avatar)`
   border: 1px solid ${(props) => props?.theme?.colors?.primaryLight} !important;
+`;
+
+export const MenuIcon = styled.div`
+  height: inherit;
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  color: ${(props) => props.theme.colors.primary};
 `;

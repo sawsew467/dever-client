@@ -2,23 +2,32 @@ import styled from "styled-components";
 import { Image, Select as SelectFromAntd } from "antd";
 
 export const ComponentsWrapper = styled.div`
-  max-width: 250px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  
   padding: 10px 0px 20px 0px;  
+  
+  transition: 300ms;
+  
+  cursor: pointer;
+  
+  &:hover{
+    scale: 1.02;
+  }
 `;
 
 export const ItemWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
 `;
 
 export const CustomImage = styled.div`
     width: 100%;
-    height: 360px;
-    border-radius: 20px !important;
+    height: 220px;
+    border-radius: 12px !important;
     overflow: hidden;
 `;
 

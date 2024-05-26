@@ -8,21 +8,19 @@ export const PageWrapper = styled.section`
   width: 100%;
   height: 100%;
 
-  padding-bottom: 16px;
+  gap: 16px;
+
 `;
 
 export const Head = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin-bottom: 24px;
 `;
 
 export const CustomContent = styled(Content)`
   background: white;
   border-radius: 16px;
-  padding: 20px;
 
   display: flex;
   flex-direction: row;
@@ -36,20 +34,56 @@ export const Gallery = styled.div`
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding: 0 0px;
+  overflow: auto;
+  overflow-x: hidden;
+
+  @media ${(props) => props.theme.breakpoints.smMax} {
+    gap: 16px;
+  }
+
+  @media ${(props) => props.theme.breakpoints.lgMax} {
+    gap: 16px;
+  }
 `;
 
 export const LGalleryCol = styled.div`
-  -ms-flex: 30%;
-  flex: 30%;
-  max-width: 30%;
+  -ms-flex: 40%;
+  flex: 40%;
+  max-width: 40%;
   padding: 0 0px;
+
+  @media ${(props) => props.theme.breakpoints.smMax} {
+    -ms-flex: 100%;
+  flex: 100%;
+  max-width: 100%;
+  }
+
+  @media ${(props) => props.theme.breakpoints.lgMax} {
+    -ms-flex: 100%;
+  flex: 100%;
+  max-width: 100%;
+  }
 `;
 
 export const RGalleryCol = styled.div`
-  -ms-flex: 70%;
-  flex: 70%;
-  max-width: 70%;
-  padding: 0 16px;
+  -ms-flex: 60%;
+  flex: 60%;
+  max-width: 60%;
+  padding-left: 16px;
+  @media ${(props) => props.theme.breakpoints.smMax} {
+    -ms-flex: 100%;
+  flex: 100%;
+  max-width: 100%;
+  padding: 0px;
+  }
+
+  @media ${(props) => props.theme.breakpoints.lgMax} {
+    -ms-flex: 100%;
+  flex: 100%;
+  max-width: 100%;
+  padding: 0px;
+  
+  }
 `;
 
 export const AvatarEditorWrapper = styled.div`

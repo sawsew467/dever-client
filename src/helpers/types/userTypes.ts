@@ -23,7 +23,8 @@ export interface UserInfo {
   _id: string;
 
   departments: UserEnum[];
-  favourites: String[];
+  favourites: string[];
+  skills: string[];
   majorId: UserEnum;
   positionId: UserEnum;
   socials: Social[];

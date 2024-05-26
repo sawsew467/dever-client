@@ -6,9 +6,14 @@ const ASSETS_URL = process.env.NEXT_PUBLIC_ASSETS_URL;
 const SITE_URL = '/';
 
 const USER_INFO = '_user_info';
+const AVT = '_avt';
+const MAIL = "_credential"
+const FN = "_fname";
+const LN = "_lname";
 const ACCESS_TOKEN = '_access_token';
 const REFRESH_TOKEN = '_refresh_token';
-const IS_AUTH = '_is_auth';
+const IS_AUTH = '_is_auth'
+;
 
 const MAX_SUB_ACCOUNT = 4;
 
@@ -19,6 +24,7 @@ const SCRIPT_JITSI = 'https://meet.jit.si/external_api.js';
 
 const constants = {
   API_SERVER,
+  AVT,
   ASSETS_URL,
   SITE_URL,
   USER_INFO,
@@ -31,6 +37,9 @@ const constants = {
   TIME_FORMAT,
   SCRIPT_JITSI,
   API_SERVER_SOCKET,
+  MAIL,
+  FN,
+  LN
 };
 
 export default constants;

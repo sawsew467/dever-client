@@ -1,4 +1,14 @@
+import { Card } from "antd";
 import styled from "styled-components";
+
+export const ContentWrapperDiv = styled.div``;
+
+export const HtmlRenderWrapper = styled.div`
+  img {
+    max-width: 100%;
+    object-fit: cover;
+    }
+`;
 
 export const LGalleryCol = styled.div`
   -ms-flex: 35%;
@@ -19,4 +29,10 @@ export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+`;
+export const CustomCard = styled(Card)`
+  border-radius: 12px !important;
+  .ant-card-body {
+    padding: 16px !important;
+  }
 `;

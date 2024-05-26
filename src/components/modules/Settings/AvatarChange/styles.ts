@@ -1,26 +1,31 @@
+import { Card } from "antd";
 import styled from "styled-components";
 
-export const LGalleryCol = styled.div`
-  -ms-flex: 35%;
-  flex: 35%;
-  max-width: 35%;
-  padding-right: 0px;
-  height: fit-content;
+export const ContentWrapper = styled.div`
+
 `;
 
-export const RGalleryCol = styled.div`
-  -ms-flex: 65%;
-  flex: 65%;
-  max-width: 65%;
-  padding-left: 16px;
-  height: fit-content;
-`;
 
 export const AvatarEditorWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 16px;
+
+  @media ${(props) => props.theme.breakpoints.smMax} {
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media ${(props) => props.theme.breakpoints.lgMax} {
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -28,4 +33,22 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
+  @media ${(props) => props.theme.breakpoints.smMax} {
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media ${(props) => props.theme.breakpoints.lgMax} {
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const CustomCard = styled(Card)`
+border-radius: 12px !important;
+  .ant-card-body {
+    padding: 16px !important;
+  }
 `;

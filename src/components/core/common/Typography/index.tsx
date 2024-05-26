@@ -20,6 +20,7 @@ interface TypographyCustomProps {
   $cursor?: "pointer";
   $margin?: string;
   $padding?: string;
+  $width?: string;
 
   children: React.ReactNode;
 }
@@ -85,6 +86,7 @@ function Title({
   $ellipsis = false,
   $whiteSpace,
   $wordBreak,
+  $width,
   ...props
 }: TitleCustomProps) {
   return (
@@ -102,6 +104,7 @@ function Title({
       $wordBreak={$wordBreak}
       $margin={$margin}
       $padding={$padding}
+      $width={$width}
       {...props}
     >
       {children}

@@ -5,7 +5,13 @@ import { useLocale } from "next-intl";
 import { AppProgressBar, useRouter } from "next-nprogress-bar";
 import Image from "next/image";
 import { useParams, usePathname } from "next/navigation";
-import React, { useCallback, useLayoutEffect, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 
 import LoadingScreen from "../../common/LoadingScreen";
 import Typography from "../../common/Typography";
@@ -25,6 +31,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as S from "./styles";
 import themeColors from "@/style/themes/default/colors";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { useOutsideAlerter } from "@/hooks/useOutsideClick";
 
 const MainLayout = ({
   children,
@@ -40,7 +47,8 @@ const MainLayout = ({
   const dispatch = useDispatch();
   const [verifyToken] = useVerifyTokenMutation();
 
-  const { userInfo } = useSelector((state: RootState) => state.auth);
+  const wrapperRef: any = useRef(null);
+
   const { t } = useTranslation(params?.locale as string, "layout");
 
   const [collapsed, setCollapsed] = useState<boolean>(false);
@@ -65,7 +73,6 @@ const MainLayout = ({
       setIsAuth(true);
       message.success(t("checkedAccess"));
 
-      //assign redux auth state
       dispatch(
         assignUserInfo({
           email: email,
@@ -80,7 +87,20 @@ const MainLayout = ({
       webStorageClient.removeAll();
       router.push(`/${localActive}/sign-in`);
     }
-  }, [localActive, router, verifyToken]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [avatar, dispatch, email, fname, lname, localActive, router, verifyToken]);
+
+  useEffect(() => {
+    function handleClickOutside(event: any) {
+      if (wrapperRef.current && !wrapperRef.current?.contains(event.target)) {
+        setCollapsed(true);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useLayoutEffect(() => {
     handleVerifyToken();
@@ -104,6 +124,45 @@ const MainLayout = ({
             options={{ showSpinner: false }}
             shallowRouting
           />
+          <S.MobileSider $collapsed={collapsed}>
+            <S.SiderContainer ref={wrapperRef}>
+              <S.LogoWrapper>
+                <div className="demo-logo-vertical">
+                  <Flex align="center" justify="space-between">
+                    <Flex
+                      align="center"
+                      gap={12}
+                      onClick={() => router?.push(`/${localActive}/all-member`)}
+                    >
+                      <Image
+                        alt=""
+                        src={"/icons/layout/fu-dever-logo.png"}
+                        width={40}
+                        height={40}
+                        style={{ cursor: "pointer" }}
+                      />
+
+                      <Typography.Title
+                        level={4}
+                        $color={themes?.default?.colors?.primary}
+                        $fontWeight={800}
+                      >
+                        FU - DEVER
+                      </Typography.Title>
+                    </Flex>
+                  </Flex>
+                </div>
+              </S.LogoWrapper>
+              <S.MenuCustom
+                mode="inline"
+                defaultSelectedKeys={["all-member"]}
+                onClick={(e) => {
+                  router?.push(`/${localActive}/${e?.key}`);
+                }}
+                items={sideBarMenuFormat}
+              />
+            </S.SiderContainer>
+          </S.MobileSider>
           <S.HeaderCustom>
             <S.HeaderContainerWrapper>
               <S.LogoWrapper>
@@ -153,13 +212,15 @@ const MainLayout = ({
                   />
                 </Flex>
               </Popover>
-              {
-                screens.xs && <S.MenuIcon onClick={() => setCollapsed(!collapsed)}>
-                  {
-                    collapsed ? <MenuFoldOutlined style={{fontSize: "24px"}}/> : <MenuUnfoldOutlined style={{fontSize: "24px"}}/> 
-                  }
+              {screens.xs && (
+                <S.MenuIcon onClick={() => setCollapsed(!collapsed)}>
+                  {collapsed ? (
+                    <MenuFoldOutlined style={{ fontSize: "24px" }} />
+                  ) : (
+                    <MenuUnfoldOutlined style={{ fontSize: "24px" }} />
+                  )}
                 </S.MenuIcon>
-              }
+              )}
             </Flex>
           </S.HeaderCustom>
           <Layout>

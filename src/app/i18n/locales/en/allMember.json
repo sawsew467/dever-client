@@ -16,6 +16,29 @@
     "FRONTENDLEAD": "Front-End Lead",
     "BACKENDLEAD": "Back-End Lead", 
 
-    "notSetYet": "Chưa cập nhật"
+    "MEDIA": "Media Ban",
+    "EVENT": "Event Ban",
+    "ACADEMIC": "Academic Ban"   , 
 
+    "notSetYet": "Chưa cập nhật",
+
+    "position": "Club position",
+    "enterPosition": "Select  position",
+
+    "department": "Department",
+    "enterDepartment": "Select department",
+
+    "major": "Major",
+    "enterMajor": "Select your major",
+
+    "generation": "Genergation",
+    "enterGeneration": "Select generation",
+
+    
+    "ENGINEERING": "Software Engineering",
+    "SECURITY": "Information security ",
+    "AI": "Artificial intelligence",
+    "DESIGN": "Digital graphic design",
+    "DMARKETING": "Digital marketing"
+    
 }

@@ -1,20 +1,43 @@
 {
     "title": "Tất cả thành viên",
-    "THUKYBANSUKIEN": "Thư ký bang sự kiện",
+    "THUKYBANSUKIEN": "Thư ký ban sự kiện",
     "MEMBER": "Thành viên",
     "CHUNHIEM": "Chủ nhiệm",
     "THUKY": "Thư ký",
     "PHOCHUNHIEM": "Phó chủ nhiệm",
-    "TRUONGBANHOCTHUAT": "Trưởng bang học thuật",
+    "TRUONGBANHOCTHUAT": "Trưởng ban học thuật",
     "PHOBANHOCTHUAT": "Phó bang học thuật",
     "THUKYBANHOCTHUAT": "Thư ký ban học thuật",
     "TRUONGBANSUKIEN": "Trưởng ban sự kiện",
-    "PHOBANSUKIEN": "Phó bang sự kiện",
-    "TRUONGBANTRUYENTHONG": "Trưởng bang truyền thông",
-    "PHOBANTRUYENTHONG": "Phó bang truyền thông",
-    "THUKYBANTRUYENTHONG": "Thư ký bang truyền thông",
+    "PHOBANSUKIEN": "Phó ban sự kiện",
+    "TRUONGBANTRUYENTHONG": "Trưởng ban truyền thông",
+    "PHOBANTRUYENTHONG": "Phó ban truyền thông",
+    "THUKYBANTRUYENTHONG": "Thư ký ban truyền thông",
     "FRONTENDLEAD": "Front-End Lead",
     "BACKENDLEAD": "Back-End Lead",
 
-    "notSetYet": "Chưa cập nhật"
+    "MEDIA": "Ban truyền thông",
+    "EVENT": "Ban sự kiện",
+    "ACADEMIC": "Ban học thuật",
+
+    "notSetYet": "Chưa cập nhật",
+
+    "position": "Chức vụ CLB",
+    "enterPosition": "Chọn chức vụ",
+
+    "department": "Ban hoạt động",
+    "enterDepartment": "Chọn ban hoạt động",
+    
+    "major": "Chuyên ngành",
+    "enterMajor": "Chọn chuyên ngành",
+
+    "generation": "Khóa",
+    "enterGeneration": "Chọn khóa",
+
+    
+    "ENGINEERING": "Kỹ thuật phần mềm",
+    "SECURITY": "An toàn thông tin ",
+    "AI": "Trí tuệ nhân tạo",
+    "DESIGN": "Thiết kế đồ họa",
+    "DMARKETING": "Digital marketing"
 }

@@ -11,6 +11,8 @@ const themeColors = {
   backgroundPrimary: "#fafafa",
   backgroundSecondary: "#ffffff",
 
+  borderPrimary: "#d9d9d9",
+
   textNormal: "#000",
   textWhite: "#FFF",
 };

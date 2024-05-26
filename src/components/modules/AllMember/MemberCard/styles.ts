@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Image, Select as SelectFromAntd } from "antd";
 
 export const ComponentsWrapper = styled.div`
-  max-width: 200px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 16px;

@@ -13,6 +13,8 @@ import webStorageClient from "@/utils/webStorageClient";
 import * as S from "./styles";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
+import Typography from "@/components/core/common/Typography";
+import themeColors from "@/style/themes/default/colors";
 
 function DropdownMenu() {
   const params = useParams();
@@ -45,10 +47,6 @@ function DropdownMenu() {
     }
   };
 
-  const handleToUserName = () => {
-    return userInfo.firstname?.concat(" ", userInfo.lastname!);
-  }
-
   return (
     <Flex vertical>
       <Flex gap={8} align="center">
@@ -64,8 +62,8 @@ function DropdownMenu() {
           }
         />
         <Flex vertical>
-          <p>{handleToUserName()}</p>
-          <a>@{userInfo.email}</a>
+          <p>{userInfo.firstname! ?? ""} {userInfo.lastname! ?? ""}</p>
+          <Typography.Text $width="150px" $color={themeColors.primary} ellipsis={true} >@{userInfo.email}</Typography.Text >
         </Flex>
       </Flex>
       <Divider $margin={8} />

@@ -104,3 +104,13 @@ export const FooterCustom = styled(Layout.Footer)`
 export const AvatarCustom = styled(Avatar)`
   border: 1px solid ${(props) => props?.theme?.colors?.primaryLight} !important;
 `;
+
+export const MenuIcon = styled.div`
+  height: inherit;
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  color: ${(props) => props.theme.colors.primary};
+`;

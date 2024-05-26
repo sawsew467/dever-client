@@ -34,13 +34,13 @@
     "enterStudentId": "Enter your student Id",
     "birthday": "Birthday",
     "enterBirthday": "Enter your birthday",
-    "gen": "Gender",
+    "gen": "Generation",
     "enterGen": "Enter your gender",
     "hometown": "Home address",
     "enterHometown": "Enter your home address",
-    "job": "Job role",
+    "job": "Job",
     "enterJob": "Example: Fullstack developer",
-    "position": "Position",
+    "position": "Club position",
     "enterPosition": "Select your position",
     "department": "Department",
     "enterDepartmetnt": "Select your department",
@@ -68,7 +68,15 @@
     "FRONTENDLEAD": "Front-End Lead",
     "BACKENDLEAD": "Back-End Lead",
 
-    "MEDIA": "Media Bang",
-    "EVENT": "Event Bang",
-    "ACADEMIC": "Academic Bang"    
+    "MEDIA": "Media Ban",
+    "EVENT": "Event Ban",
+    "ACADEMIC": "Academic Ban"    ,
+
+    "ENGINEERING": "Software Engineering",
+    "SECURITY": "Information security ",
+    "AI": "Artificial intelligence",
+    "DESIGN": "Digital graphic design",
+    "DMARKETING": "Digital marketing"
+
+
 }

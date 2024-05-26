@@ -2,7 +2,7 @@
 
 import { Flex, Grid, Layout, Popover, message } from "antd";
 import { useLocale } from "next-intl";
-import { useRouter } from "next-nprogress-bar";
+import { AppProgressBar, useRouter } from "next-nprogress-bar";
 import Image from "next/image";
 import { useParams, usePathname } from "next/navigation";
 import React, { useCallback, useLayoutEffect, useState } from "react";
@@ -23,6 +23,8 @@ import { RootState } from "@/store";
 import { assignUserInfo } from "@/store/slices/auth";
 import { useDispatch, useSelector } from "react-redux";
 import * as S from "./styles";
+import themeColors from "@/style/themes/default/colors";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 
 const MainLayout = ({
   children,
@@ -49,7 +51,7 @@ const MainLayout = ({
   const fname = webStorageClient.get(constants.FN);
   const lname = webStorageClient.get(constants.LN);
   const avatar = webStorageClient.get(constants.AVT);
-  
+
   const handleVerifyToken = useCallback(async () => {
     try {
       if (!webStorageClient.get("_access_token")) {
@@ -96,28 +98,34 @@ const MainLayout = ({
         <LoadingScreen />
       ) : (
         <S.ContainerLayoutCustom>
+          <AppProgressBar
+            height="4px"
+            color={themeColors.primary}
+            options={{ showSpinner: false }}
+            shallowRouting
+          />
           <S.HeaderCustom>
             <S.HeaderContainerWrapper>
               <S.LogoWrapper>
                 <div className="demo-logo-vertical">
                   <Flex align="center" justify="space-between">
-                    <Flex align="center" gap={12}>
+                    <Flex
+                      align="center"
+                      gap={12}
+                      onClick={() => router?.push(`/${localActive}/all-member`)}
+                    >
                       <Image
                         alt=""
                         src={"/icons/layout/fu-dever-logo.png"}
                         width={40}
                         height={40}
                         style={{ cursor: "pointer" }}
-                        onClick={() => setCollapsed(!collapsed)}
                       />
                       {!collapsed && (
                         <Typography.Title
                           level={4}
                           $color={themes?.default?.colors?.primary}
                           $fontWeight={800}
-                          onClick={() =>
-                            router?.push(`/${localActive}/all-member`)
-                          }
                         >
                           {screens.xs ? "" : "FU - DEVER"}
                         </Typography.Title>
@@ -145,6 +153,13 @@ const MainLayout = ({
                   />
                 </Flex>
               </Popover>
+              {
+                screens.xs && <S.MenuIcon onClick={() => setCollapsed(!collapsed)}>
+                  {
+                    collapsed ? <MenuFoldOutlined style={{fontSize: "24px"}}/> : <MenuUnfoldOutlined style={{fontSize: "24px"}}/> 
+                  }
+                </S.MenuIcon>
+              }
             </Flex>
           </S.HeaderCustom>
           <Layout>
@@ -158,6 +173,7 @@ const MainLayout = ({
             >
               <S.MenuCustom
                 mode="inline"
+                defaultSelectedKeys={["all-member"]}
                 onClick={(e) => {
                   router?.push(`/${localActive}/${e?.key}`);
                 }}

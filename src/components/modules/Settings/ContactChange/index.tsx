@@ -71,7 +71,7 @@ function ContactChange({ isUserProfileLoading, userData }: IProps) {
             >
               <Input placeholder={t("enterNickname")} />
             </Form.Item>
-
+            
             <S.FormItemNotMB>
               <Button
                 type="primary"

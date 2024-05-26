@@ -40,6 +40,10 @@ export const Gallery = styled.div`
   @media ${(props) => props.theme.breakpoints.smMax} {
     gap: 16px;
   }
+
+  @media ${(props) => props.theme.breakpoints.lgMax} {
+    gap: 16px;
+  }
 `;
 
 export const LGalleryCol = styled.div`
@@ -49,6 +53,12 @@ export const LGalleryCol = styled.div`
   padding: 0 0px;
 
   @media ${(props) => props.theme.breakpoints.smMax} {
+    -ms-flex: 100%;
+  flex: 100%;
+  max-width: 100%;
+  }
+
+  @media ${(props) => props.theme.breakpoints.lgMax} {
     -ms-flex: 100%;
   flex: 100%;
   max-width: 100%;
@@ -65,6 +75,14 @@ export const RGalleryCol = styled.div`
   flex: 100%;
   max-width: 100%;
   padding: 0px;
+  }
+
+  @media ${(props) => props.theme.breakpoints.lgMax} {
+    -ms-flex: 100%;
+  flex: 100%;
+  max-width: 100%;
+  padding: 0px;
+  
   }
 `;
 

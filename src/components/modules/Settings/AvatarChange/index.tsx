@@ -119,8 +119,8 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
                   size={"default"}
                   style={{ width: "100%" }}
                 />
-              ) : userData.job != null ? (
-                userData.job
+              ) : userData?.email != null ? (
+                userData?.email
               ) : (
                 t("notSetYet")
               )}

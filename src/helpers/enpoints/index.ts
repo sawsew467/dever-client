@@ -11,6 +11,10 @@ const endpointAuth = {
 
 const endpointAllMember = {
   GET_ALL_MEMBERS: `${prefixBase}/users/`,
+  GET_ALL_DEPARTMENTS: `${prefixBase}/department`,
+  GET_ALL_POSITION: `${prefixBase}/position`,
+  GET_ALL_MAJOR: `${prefixBase}/major`
+
 }
 
 const endpointSettings = {

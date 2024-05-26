@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Select as SelectFromAntd } from "antd";
+import { Input, Row, Select as SelectFromAntd } from "antd";
 import { Content } from "antd/es/layout/layout";
 
 export const PageWrapper = styled.section`
@@ -14,6 +14,16 @@ export const PageWrapper = styled.section`
 
 export const Head = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media ${(props) => props.theme.breakpoints.smMax} {
+    flex-direction: column;
+    gap: 16px;
+  }
+`;
+export const HeadTitle = styled.div`
+ display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -23,6 +33,8 @@ export const Head = styled.div`
     gap: 16px;
   }
 `;
+
+export const HeadFilter = styled.div``;
 
 export const CustomContent = styled(Content)`
   background: white;
@@ -37,6 +49,7 @@ export const CustomContent = styled(Content)`
 `;
 
 export const ComponentsWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -46,7 +59,13 @@ export const ItemWrapper = styled.div`
 
   display: flex;
   flex-direction: row;
-  gap: 20px;
+
+  
+  @media ${props => props.theme.breakpoints.smMax} {
+      max-width: 100%;
+      gap: 16px;
+  }
+
 `;
 export const FilterWrapper = styled.div`
   width: 40px;
@@ -54,20 +73,22 @@ export const FilterWrapper = styled.div`
   padding: 20px;
   border-radius: 6px;
 
+  border: 1px solid ${(props) => props?.theme?.colors?.borderPrimary};
+
   color: ${(props) => props?.theme?.colors.primaryDarker} !important;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #cccccc4a;
+  /* background: #cccccc4a; */
 
   cursor: pointer;
 
   transition: 300ms;
 
   &:hover {
-    background-color: #cccccc75;
+    background-color: ${(props) => props?.theme?.colors?.backgroundPrimary};
   }
 `;
 export const MapWrapper = styled.div`
@@ -81,4 +102,17 @@ export const SpinWrapper = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
+`;
+
+export const InputCustom = styled(Input)`
+  width: 100%;
+  @media ${props => props.theme.breakpoints.smMax} {
+      width: 400px !important;
+    }
+`;
+
+export const RowCustom = styled(Row)`
+  @media ${props => props.theme.breakpoints.mdMax} {
+      gap: 12px;
+    }
 `;

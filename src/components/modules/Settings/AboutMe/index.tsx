@@ -37,6 +37,7 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
       await updateUserProfile(data).unwrap();
       setIsUpdateSuccess(true);
       setIdleText(textEditorData);
+      setIsEdit(false);
       message.success(t('updateSuccess'));
     } catch (error) {
       setIsUpdateSuccess(false);
@@ -56,13 +57,13 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
               <Typography.Title level={3}>{t("aboutMe")}</Typography.Title>
 
               <Typography.Text>
-                <div
+                <S.HtmlRenderWrapper
                   dangerouslySetInnerHTML={{
                     __html: `${
                       isUpdateSuccess ? idleText : userData.description
                     }`,
                   }}
-                ></div>
+                ></S.HtmlRenderWrapper>
               </Typography.Text>
 
               <Button
@@ -86,7 +87,7 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
             >
               <CustomEditor
                 getData={setTextEditorData}
-                data={userData.description}
+                data={isUpdateSuccess? idleText : userData.description}
               />
               <Button
                 type="primary"

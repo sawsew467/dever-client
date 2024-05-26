@@ -23,6 +23,7 @@ export const FormItemNotMB = styled(Form.Item)`
   margin-bottom: 0 !important;
 `;
 export const DatePickerCustom = styled(DatePicker)`
+    width: 100%;
     .ant-picker-input>input{
         font-size: 14px !important;
         line-height: 1.7 !important;

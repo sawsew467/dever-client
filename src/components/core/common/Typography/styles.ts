@@ -16,6 +16,7 @@ export const TextCustom = styled(Typography.Text)<TextCustomProps>`
   cursor: ${(props) => props?.$cursor} !important;
   margin: ${(props) => props?.$margin} !important;
   padding: ${(props) => props?.$padding} !important;
+  width: ${(props) => props?.$width} !important;
 
   text-wrap: balance;
 `;
@@ -33,6 +34,8 @@ export const TitleCustom = styled(Typography.Title)<TitleCustomProps>`
   cursor: ${(props) => props?.$cursor} !important;
   margin: ${(props) => props?.$margin} !important;
   padding: ${(props) => props?.$padding} !important;
+
+  width: ${(props) => props?.$width} !important;
 
   text-wrap: balance;
 `;

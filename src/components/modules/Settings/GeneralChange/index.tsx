@@ -7,6 +7,7 @@ import {
   FormProps,
   Grid,
   Input,
+  InputNumber,
   message,
   Row,
   Select,
@@ -29,6 +30,7 @@ import {
 import { constants } from "@/settings";
 import { applyChangeName } from "@/store/slices/auth";
 import webStorageClient from "@/utils/webStorageClient";
+import dayjs from "dayjs";
 
 interface IProps {
   isUserProfileLoading: boolean;
@@ -112,7 +114,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
     myForm.setFieldsValue({
       firstname: userData?.firstname,
       lastname: userData?.lastname,
-      dob: moment(userData?.dob),
+      dob: dayjs(userData?.dob),
       gen: userData.gen,
       MSSV: userData.MSSV,
       hometown: userData?.hometown,
@@ -180,6 +182,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
                     <Input placeholder={t("enterStudentId")} />
                   </Form.Item>
                 </Col>
+                
                 <Col className="gutter-row" span={handleFillGridEntryScreen()}>
                   <Form.Item
                     label={t("birthday")}
@@ -189,7 +192,6 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
                   >
                     <S.DatePickerCustom
                       size="large"
-                      style={{ width: "100%" }}
                       placeholder={t("enterBirthday")}
                     />
                   </Form.Item>
@@ -202,7 +204,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
                     wrapperCol={{ span: 24 }}
                     rules={[{ required: true, message: t("cantBeEmpty") }]}
                   >
-                    <Input placeholder={t("enterGen")} />
+                    <InputNumber style={{width: "100%"}} size="middle" min={1} max={10} placeholder={t("enterGen")} />
                   </Form.Item>
                 </Col>
                 <Col className="gutter-row" span={handleFillGridEntryScreen()}>
@@ -233,6 +235,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
                     rules={[{ required: true, message: t("cantBeEmpty") }]}
                   >
                     <S.SelectCustom
+                      disabled
                       size="large"
                       placeholder={t("enterPosition")}
                     >
@@ -252,6 +255,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
                     rules={[{ required: true, message: t("cantBeEmpty") }]}
                   >
                     <S.SelectCustom
+                      disabled
                       mode="multiple"
                       allowClear
                       size="large"
@@ -275,7 +279,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
                     <S.SelectCustom size="large" placeholder={t("enterMajor")}>
                       {majorEnums.map((item: UserEnum, index: number) => (
                         <Select.Option value={item._id} key={index}>
-                          {item.name}
+                          {t(item.constant)}
                         </Select.Option>
                       ))}
                     </S.SelectCustom>

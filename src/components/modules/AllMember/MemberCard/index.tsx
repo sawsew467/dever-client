@@ -3,11 +3,11 @@ import React from "react";
 import * as S from "./styles";
 
 import Image from "next/image";
-import { Typography } from "antd";
 import { useParams } from "next/navigation";
 
 import { UserInfo } from "@/helpers/types/userTypes";
 import { useTranslation } from "@/app/i18n/client";
+import Typography from "@/components/core/common/Typography";
 
 interface IProps {
   dataSource: UserInfo;
@@ -36,23 +36,18 @@ function MemberCard({ dataSource }: IProps) {
                 objectFit: "cover",
               }}
             ></Image>
-            {
-              dataSource.gen && <S.Gen>Gen {dataSource.gen}</S.Gen>
-            }
+            {dataSource.gen && <S.Gen>Gen {dataSource.gen}</S.Gen>}
           </S.CustomImage>
         </div>
         <S.TextWrapper>
-          <Typography.Title level={5} style={{fontWeight: "800"}}
-          >
-            {dataSource.firstname} {dataSource.lastname}
+          <Typography.Title level={5} $fontWeight={700} $align="center">
+            {dataSource.firstname}
           </Typography.Title>
-          <Typography
-             style={{
-                fontSize: "16px",
-                fontWeight: 400,
-              }}>
-            {dataSource.positionId !== null ? t(dataSource?.positionId?.constant) : ""}
-          </Typography>
+          <Typography.Text $align="center">
+            {dataSource.positionId !== null
+              ? t(dataSource?.positionId?.constant)
+              : ""}
+          </Typography.Text>
         </S.TextWrapper>
       </S.ItemWrapper>
     </S.ComponentsWrapper>

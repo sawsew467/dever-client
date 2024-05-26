@@ -13,7 +13,6 @@ import {
   message,
   Select,
   Skeleton,
-  Typography,
 } from "antd";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -24,8 +23,12 @@ import GithubIcon from "@public/icons/layout/socials/github.png";
 import InstagramIcon from "@public/icons/layout/socials/instagram.png";
 import LeetCodeIcon from "@public/icons/layout/socials/leetcode.png";
 import { PlusOutlined } from "@ant-design/icons";
-import { useGetSocialEnumsQuery, useUpdateUserProfileMutation } from "@/store/queries/settings";
+import {
+  useGetSocialEnumsQuery,
+  useUpdateUserProfileMutation,
+} from "@/store/queries/settings";
 import { useTranslation } from "@/app/i18n/client";
+import Typography from "@/components/core/common/Typography";
 
 interface IProps {
   isUserProfileLoading: boolean;
@@ -56,8 +59,6 @@ function SocialChange({
   const [updateUserProfile, { isLoading }] = useUpdateUserProfileMutation();
   const params = useParams();
   const { t } = useTranslation(params?.locale as string, "settings");
-
-
 
   const handleRenderSocialIcon = (key: string) => {
     switch (key) {
@@ -105,37 +106,36 @@ function SocialChange({
       };
       return dataArray.push(itemDataFilter);
     });
-    if(values.url !== "" && values.socialId != "") {
-        dataArray.push(forUpdateValue);
+    if (values.url !== "" && values.socialId != "") {
+      dataArray.push(forUpdateValue);
     }
     try {
-        const res = await updateUserProfile({socials: dataArray})
-        console.log(res);
-        refetchUserData();
-        message.success(t("updateSuccess"))
+      const res = await updateUserProfile({ socials: dataArray });
+      console.log(res);
+      refetchUserData();
+      message.success(t("updateSuccess"));
     } catch (error) {
-        message.error(t("updateError"))
+      message.error(t("updateError"));
     }
   };
 
   const handleDisconnect = async (fromId: string) => {
     const newFilteredList = socialData.filter((item, _) => item._id !== fromId);
     const dataToUpdate: ISocial[] = newFilteredList.map((item, _) => {
-        return {
-            url: item.url,
-            socialId: {_id: item.socialId._id}
-        }
-    })
+      return {
+        url: item.url,
+        socialId: { _id: item.socialId._id },
+      };
+    });
     try {
-        message.info(t("disconnecting"))
-        const res = await updateUserProfile({socials: dataToUpdate});
-        setSocialData([...newFilteredList]);
-        message.success(t("disconnected"))
+      message.info(t("disconnecting"));
+      const res = await updateUserProfile({ socials: dataToUpdate });
+      setSocialData([...newFilteredList]);
+      message.success(t("disconnected"));
     } catch (error) {
-        message.error(t("updateError"))
-        
+      message.error(t("updateError"));
     }
-}
+  };
 
   return (
     <S.ContainerWrapper>
@@ -161,10 +161,18 @@ function SocialChange({
                         />
                       }
                       title={item.socialId.name}
-                      description={<a href={item.url}>{item.url}</a>}
+                      description={
+                        <Typography.Text style={{width: "200px"}} ellipsis={true}>
+                          <a href={item.url}>{item.url}</a>
+                        </Typography.Text>
+                      }
                     />
-                    <Button type="default" onClick={() => handleDisconnect(item._id)}>
-                       {t("disconnect")}</Button>
+                    <Button
+                      type="default"
+                      onClick={() => handleDisconnect(item._id)}
+                    >
+                      {t("disconnect")}
+                    </Button>
                   </List.Item>
                 )}
               />
@@ -207,10 +215,7 @@ function SocialChange({
                     wrapperCol={{ span: 24 }}
                     rules={[{ required: true, message: t("cantBeEmpty") }]}
                   >
-                    <Input
-                      size="middle"
-                      placeholder={t("enterAccountUrl")}
-                    />
+                    <Input size="middle" placeholder={t("enterAccountUrl")} />
                   </Form.Item>
                   <S.FormItemNotMB>
                     <Button
@@ -219,7 +224,7 @@ function SocialChange({
                       htmlType="submit"
                       loading={isLoading}
                     >
-                     {t("update")}
+                      {t("update")}
                     </Button>
                   </S.FormItemNotMB>
                 </Form>

@@ -25,13 +25,11 @@ import { themes } from "@/style/themes";
 import webStorageClient from "@/utils/webStorageClient";
 
 import { constants } from "@/settings";
-import { RootState } from "@/store";
 import { assignUserInfo } from "@/store/slices/auth";
-import { useDispatch, useSelector } from "react-redux";
-import * as S from "./styles";
 import themeColors from "@/style/themes/default/colors";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { useOutsideAlerter } from "@/hooks/useOutsideClick";
+import { useDispatch } from "react-redux";
+import * as S from "./styles";
 
 const MainLayout = ({
   children,

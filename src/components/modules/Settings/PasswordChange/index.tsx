@@ -1,9 +1,11 @@
 import React from "react";
 import * as S from "./styles";
-import Typography from "@/components/core/common/Typography";
-import { UserInfo } from "@/helpers/types/userTypes";
-import { Button, Form, FormProps, Input, message, Skeleton } from "antd";
+
 import { useParams } from "next/navigation";
+import { Button, Form, FormProps, Input, message, Skeleton } from "antd";
+
+import { UserInfo } from "@/helpers/types/userTypes";
+import Typography from "@/components/core/common/Typography";
 import { useTranslation } from "@/app/i18n/client";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { useChangePasswordMutation } from "@/store/queries/settings";

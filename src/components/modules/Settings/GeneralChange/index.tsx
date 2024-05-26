@@ -14,7 +14,7 @@ import {
   Skeleton,
   Typography,
 } from "antd";
-import moment from "moment";
+
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";

@@ -5,12 +5,12 @@ import * as S from "./styles";
 import React, { useEffect, useRef, useState } from "react";
 import { TweenOneGroup } from "rc-tween-one";
 import { Button, Input, InputRef, message, Skeleton, Tag, theme } from "antd";
+import { useParams } from "next/navigation";
 
 import { UserInfo } from "@/helpers/types/userTypes";
 import Typography from "@/components/core/common/Typography";
 import { PlusOutlined } from "@ant-design/icons";
 import { useUpdateUserProfileMutation } from "@/store/queries/settings";
-import { useParams } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
 
 interface IProps {

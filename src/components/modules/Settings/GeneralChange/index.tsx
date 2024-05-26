@@ -18,6 +18,7 @@ import moment from "moment";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import dayjs from "dayjs";
 
 import { useTranslation } from "@/app/i18n/client";
 import { UserEnum, UserInfo } from "@/helpers/types/userTypes";
@@ -30,7 +31,6 @@ import {
 import { constants } from "@/settings";
 import { applyChangeName } from "@/store/slices/auth";
 import webStorageClient from "@/utils/webStorageClient";
-import dayjs from "dayjs";
 
 interface IProps {
   isUserProfileLoading: boolean;

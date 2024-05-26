@@ -29,6 +29,7 @@
     "next-intl": "^3.13.0",
     "next-nprogress-bar": "^2.3.11",
     "nookies": "^2.5.2",
+    "rc-tween-one": "^3.0.6",
     "react": "^18",
     "react-cookie": "^7.1.4",
     "react-dom": "^18",

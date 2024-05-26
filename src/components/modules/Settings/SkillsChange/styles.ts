@@ -20,3 +20,13 @@ export const ContentWrapper = styled.div`
 export const FormItemNotMB = styled(Form.Item)`
   margin-bottom: 0 !important;
 `;
+
+export const TagsWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+`;
+
+export const TagsList = styled.div`
+
+`;

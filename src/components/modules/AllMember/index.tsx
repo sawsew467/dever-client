@@ -80,9 +80,6 @@ function AllMemberModule() {
       },
     }
   );
-
-  console.log(result);
-
   const departmentData: InterfaceEnumsData = useGetAllDepartmentsQuery(
     undefined,
     {

@@ -45,49 +45,49 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
           <Skeleton />
         ) : (
           <S.ContentWrapper>
-            <Typography.Title level={3}>Thay đổi password</Typography.Title>
+            <Typography.Title level={3}>{t("changePassword")}</Typography.Title>
             <Form
               name="changePasswordForm"
               onFinish={onFishish}
               layout="vertical"
             >
               <Form.Item
-                label={"Current password"}
+                label={t("currentPassword")}
                 name="oldPassword"
                 wrapperCol={{ span: 24 }}
                 rules={[{ required: true, message: t("cantBeEmpty") }]}
               >
                 <Input.Password
                   autoComplete="oldPassword"
-                  placeholder="Enter current password"
+                  placeholder={t("enterCurrentPassword")}
                   iconRender={(visible) =>
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                   }
                 />
               </Form.Item>
               <Form.Item
-                label={"New password"}
+                label={t("newPassword")}
                 name="newPassword"
                 wrapperCol={{ span: 24 }}
                 rules={[
                   { required: true, message: t("cantBeEmpty") },
                   {
                     pattern: /^(?=.*[a-z])(?=.*[!@#?])[A-Za-z!@#?.0-9]{8,100}$/,
-                    message: "Please enter more stronger password",
+                    message: t("strongPassword"),
                   },
                 ]}
                 hasFeedback
               >
                 <Input.Password
                   autoComplete="newPassword"
-                  placeholder="Enter new password"
+                  placeholder={t("enterNewPassword")}
                   iconRender={(visible) =>
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                   }
                 />
               </Form.Item>
               <Form.Item
-                label={"Confirm new password"}
+                label={t("confirmNewPassword")}
                 name="confirmNewPassword"
                 wrapperCol={{ span: 24 }}
                 rules={[
@@ -99,7 +99,7 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
                       }
                       return Promise.reject(
                         new Error(
-                          "The new password that you entered do not match!"
+                         t("notMatch")
                         )
                       );
                     },
@@ -108,7 +108,7 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
                 hasFeedback
               >
                 <Input.Password
-                  placeholder="Enter current password"
+                  placeholder={t("enterConfirmNewPassword")}
                   iconRender={(visible) =>
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                   }
@@ -116,25 +116,24 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
               </Form.Item>
               <div>
                 <Typography.Title level={5} $fontWeight={700}>
-                  Password requirements:
+                  {t("required")}
                 </Typography.Title>
                 <Typography.Title level={5} $fontWeight={700}>
-                  Ensure that these requirements are met:
+                  {t("ensure")}
                   <ul>
                     <li>
                       <Typography.Text $fontWeight={500}>
-                        At least 10 characters (and up to 100 characters)
+                       {t("requiredOne")}
                       </Typography.Text>
                     </li>
                     <li>
                       <Typography.Text $fontWeight={500}>
-                        At least one lowercase character
+                       {t("requiredTwo")}
                       </Typography.Text>
                     </li>
                     <li>
                       <Typography.Text $fontWeight={500}>
-                        Inclusion of at least one special character, e.g., ! @ #
-                        ?
+                       {t("requiredThree")}
                       </Typography.Text>
                     </li>
                   </ul>
@@ -142,7 +141,7 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
               </div>
 
               <Form.Item>
-                <Button htmlType="submit" type="primary">{t("update")}</Button>
+                <Button htmlType="submit" type="primary" loading={isLoading}>{t("update")}</Button>
               </Form.Item>
             </Form>
           </S.ContentWrapper>

@@ -33,6 +33,8 @@ function SettingsModules() {
     }
   );
 
+  console.log(result);
+
   return (
     <S.PageWrapper>
       <S.Head>

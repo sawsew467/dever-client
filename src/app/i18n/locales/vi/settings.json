@@ -80,5 +80,22 @@
 
     "skills": "Kỹ năng",
     "favouries": "Sở thích",
-    "enterNewTag": "Nhập tag mới"
+    "enterNewTag": "Nhập tag mới",
+
+    "changePassword": "Thay đổi mật khẩu",
+    "currentPassword": "Mật khẩu hiện tại",
+    "enterCurrentPassword": "Nhập mật hiện tại",
+    "newPassword": "Mật khẩu mới",
+    "enterNewPassword": "Nhập mật khẩu mới",
+    "confirmNewPassword": "Xác nhận mật khẩu mới",
+    "enterConfirmNewPassword": "Nhập xác thực mật khẩu mới",
+    "required": "Yêu cầu mật khẩu hợp lệ:",
+    "ensure": "Đảm bảo phù hợp với các yêu cầu mật khẩu sau:",
+    "requiredOne": "Ít nhất 10 ký tự (và có thể lên đến 36 ký tự)",
+    "requiredTwo": "Ít nhất một ký tự viết thường hoặc viết hoa",
+    "requiredThree": "Bao gồm ít nhất một trong các ký tự đặc biệt e.g., ! @ # ?",
+
+    "strongPassword": "Vui lòng nhập mật khẩu mạnh hơn",
+    "notMatch": "Không trùng với mật khẩu mới"
+
 }

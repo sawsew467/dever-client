@@ -97,6 +97,7 @@ function SocialChange({
         _id: values.socialId,
       },
     };
+    
     socialData.map((item, index) => {
       let itemDataFilter = {
         url: item.url,

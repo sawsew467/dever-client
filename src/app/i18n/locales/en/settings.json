@@ -76,7 +76,10 @@
     "SECURITY": "Information security ",
     "AI": "Artificial intelligence",
     "DESIGN": "Digital graphic design",
-    "DMARKETING": "Digital marketing"
+    "DMARKETING": "Digital marketing",
 
+    "skills": "Skills",
+    "favouries": "Hobbies",
+    "enterNewTag": "Enter new tag"
 
 }

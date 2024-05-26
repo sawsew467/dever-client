@@ -29,7 +29,7 @@ export const TagsWrapper = styled.div`
 
 export const TagsList = styled.div`
 
-`;
+`;  
 
 export const TagCustom = styled(Tag)`
     width: fit-content;

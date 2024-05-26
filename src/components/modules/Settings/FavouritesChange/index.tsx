@@ -1,4 +1,5 @@
 "use client";
+
 import * as S from "./styles";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -17,7 +18,7 @@ interface IProps {
   userData: UserInfo;
 }
 
-function SkillsChange({ isUserProfileLoading, userData }: IProps) {
+function FavouritiesChange({ isUserProfileLoading, userData }: IProps) {
   const { token } = theme.useToken();
   const [tags, setTags] = useState<string[]>([]);
   const [inputVisible, setInputVisible] = useState(false);
@@ -32,9 +33,8 @@ function SkillsChange({ isUserProfileLoading, userData }: IProps) {
   const handleUpdate = async () => {
     try {
       const data = {
-        skills: tags ?? [],
+        favourites: tags ?? [],
       };
-      await updateUserProfile(data);
       setIsHaveNewTag(false);
       message.success(t("updateSuccess"));
     } catch (error) {
@@ -43,7 +43,7 @@ function SkillsChange({ isUserProfileLoading, userData }: IProps) {
   };
 
   useEffect(() => {
-    setTags(userData?.skills || []);
+    setTags(userData?.favourites || []);
   }, [userData]);
 
   const handleClose = (removedTag: string) => {
@@ -61,7 +61,7 @@ function SkillsChange({ isUserProfileLoading, userData }: IProps) {
     <span key={tag} style={{ display: "inline-block" }}>
       <S.TagCustom
         closable
-        color="green"
+        color="purple"
         onClose={(e) => {
           e.preventDefault();
           handleClose(tag);
@@ -95,7 +95,6 @@ function SkillsChange({ isUserProfileLoading, userData }: IProps) {
     setInputVisible(false);
     setInputValue("");
   };
-
   return (
     <S.ContainerWrapper>
       <S.CustomCard>
@@ -103,7 +102,7 @@ function SkillsChange({ isUserProfileLoading, userData }: IProps) {
           <Skeleton />
         ) : (
           <S.ContentWrapper>
-            <Typography.Title level={3}>{t("skills")}</Typography.Title>
+            <Typography.Title level={3}>{t("favouries")}</Typography.Title>
             <S.TagsWrapper>
               <S.TagsList>
                 <TweenOneGroup
@@ -159,4 +158,4 @@ function SkillsChange({ isUserProfileLoading, userData }: IProps) {
   );
 }
 
-export default SkillsChange;
+export default FavouritiesChange;

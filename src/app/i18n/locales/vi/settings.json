@@ -76,5 +76,9 @@
     "SECURITY": "An toàn thông tin ",
     "AI": "Trí tuệ nhân tạo",
     "DESIGN": "Thiết kế đồ họa",
-    "DMARKETING": "Digital marketing"
+    "DMARKETING": "Digital marketing",
+
+    "skills": "Kỹ năng",
+    "favouries": "Sở thích",
+    "enterNewTag": "Nhập tag mới"
 }

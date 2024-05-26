@@ -27,6 +27,19 @@ export const authAPI = baseApi.injectEndpoints({
       }),
     }),
 
+    
+    changePassword: build.mutation({
+      query: (body: {
+        oldPassword: string;
+        newPassword: string;
+      }) => ({
+        url: endpointSettings.CHANGE_PASSWORD,
+        method: "PATCH",
+        body: body,
+        flashError: true,
+      }),
+    }),
+
     getSocialEnums: build.query<any, any>({
       query: (params) => ({
         url: endpointSettings.SOCIAL_ENUMS,
@@ -69,5 +82,6 @@ export const {
   useGetSocialEnumsQuery,
   useGetPositionEnumsQuery,
   useGetDepartmentEnumsQuery,
-  useGetMajorEnumsQuery
+  useGetMajorEnumsQuery,
+  useChangePasswordMutation
 } = authAPI;

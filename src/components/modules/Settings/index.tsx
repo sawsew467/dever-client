@@ -14,6 +14,8 @@ import { constants } from "@/settings";
 import { useGetMyProfileQuery } from "@/store/queries/settings";
 import webStorageClient from "@/utils/webStorageClient";
 import SkillsChange from "./SkillsChange";
+import FavouritiesChange from "./FavouritesChange";
+import PasswordChange from "./PasswordChange";
 
 function SettingsModules() {
   const params = useParams();
@@ -43,11 +45,13 @@ function SettingsModules() {
             <ContactChange isUserProfileLoading={isFetching} userData={result}/>
             <SocialChange isUserProfileLoading={isFetching} userData={result} refetchUserData={refetch}/>
             <SkillsChange isUserProfileLoading={isFetching} userData={result}></SkillsChange>
+            <FavouritiesChange isUserProfileLoading={isFetching} userData={result}></FavouritiesChange>
           </S.LGalleryCol>
 
           <S.RGalleryCol>
             <AboutMe isUserProfileFetching={isFetching} userData={result} />
             <GeneralChange isUserProfileLoading={isFetching} userData={result}/>
+            <PasswordChange isUserProfileLoading={isFetching} userData={result}/>
           </S.RGalleryCol>
         </S.Gallery>
       </S.CustomContent>

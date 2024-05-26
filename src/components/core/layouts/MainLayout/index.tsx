@@ -243,9 +243,6 @@ const MainLayout = ({
             </S.SiderCustom>
             <S.LayoutCustom>
               <S.ContentCustom>{children}</S.ContentCustom>
-              <S.FooterCustom>
-                <p>COPYRIGHT © 2024 FU-DEVER All rights Reserved</p>
-              </S.FooterCustom>
             </S.LayoutCustom>
           </Layout>
         </S.ContainerLayoutCustom>

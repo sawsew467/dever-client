@@ -1,10 +1,7 @@
 "use client";
 
 import {
-  endpointAllMember,
-  endpointAuth,
-  endpointSettings,
-  endpointUsersManagement,
+  endpointSettings
 } from "@/helpers/enpoints";
 import { baseApi } from "../base";
 

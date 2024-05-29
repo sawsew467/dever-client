@@ -8,6 +8,8 @@ import { useParams } from "next/navigation";
 import { UserInfo } from "@/helpers/types/userTypes";
 import { useTranslation } from "@/app/i18n/client";
 import Typography from "@/components/core/common/Typography";
+import { useRouter } from "next-nprogress-bar";
+import { useLocale } from "next-intl";
 
 interface IProps {
   dataSource: UserInfo;
@@ -15,9 +17,21 @@ interface IProps {
 
 function MemberCard({ dataSource }: IProps) {
   const params = useParams();
+  const locale = useLocale();
   const { t } = useTranslation(params?.locale as string, "allMember");
+
+  const router = useRouter();
+
   return (
-    <S.ComponentsWrapper>
+    <S.ComponentsWrapper
+      onClick={() => {
+        router.push(
+          `/${locale}/profile/${
+            dataSource?.nickname ? dataSource?.nickname : dataSource._id
+          }`
+        );
+      }}
+    >
       <S.ItemWrapper>
         <div
           style={{
@@ -41,7 +55,9 @@ function MemberCard({ dataSource }: IProps) {
         </div>
         <S.TextWrapper>
           <Typography.Title level={5} $fontWeight={700} $align="center">
-            {dataSource.firstname}
+            {dataSource?.firstname! && dataSource?.lastname!
+              ? `${dataSource.firstname.concat(" ", dataSource?.lastname)}`
+              : dataSource?.email}
           </Typography.Title>
           <Typography.Text $align="center">
             {dataSource.positionId !== null

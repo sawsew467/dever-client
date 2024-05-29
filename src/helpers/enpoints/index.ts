@@ -27,6 +27,11 @@ const endpointSettings = {
   CHANGE_PASSWORD: `${prefixBase}/edit-profile/change-password`
 }
 
+const endpointProfile = {
+  GET_PROFILE_BY_ID: `${prefixBase}/users/{id}`,
+  GET_PROFILE_BY_SLUG: `${prefixBase}/users/slug/{name}`
+}
+
 const endpointUsersManagement = {
   GET_ALL_USERS: `${prefixBase}/users/`,
   DELETE_USER: `${prefixBase}/users/{id}`,
@@ -79,5 +84,6 @@ export {
   endpointSocialManagement,
   endpointImageActivityManagement,
   endpointAllMember,
-  endpointSettings
+  endpointSettings,
+  endpointProfile 
 };

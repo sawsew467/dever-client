@@ -5,6 +5,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface UserStateInfo {
+  id: string | null;
   firstname: string | null;
   lastname: string | null;
   email: string | null;
@@ -18,6 +19,7 @@ interface AuthSlickInterface {
 
 const initialState: AuthSlickInterface = {
   userInfo: {
+    id: null,
     firstname: null,
     lastname: null,
     email: null,
@@ -56,10 +58,7 @@ export const authSlice = createSlice({
       (state, action) => {
         webStorageClient.setToken(action?.payload?.data?.token);
         webStorageClient.set(constants.USER_INFO, action?.payload?.data?.user?._id)
-        webStorageClient.set(constants.AVT, action?.payload?.data?.user?.avatar)
-        webStorageClient.set(constants.MAIL, action?.payload?.data?.user?.email)
-        webStorageClient.set(constants.FN, action?.payload?.data?.user?.firstname)
-        webStorageClient.set(constants.LN, action?.payload?.data?.user?.lastname)
+      
       
         // webStorageClient.set(constants.USER_INFO, action?.payload.user._id);
         // webStorageClient.set(constants.IS_AUTH, true);

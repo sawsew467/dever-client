@@ -27,14 +27,14 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
 
   const onFishish: FormProps<IUpdateValues>["onFinish"] = async (values) => {
     try {
-        console.log(values)
+      console.log(values);
       const data = {
         oldPassword: values.oldPassword,
-        newPassword: values.newPassword
-      }
+        newPassword: values.newPassword,
+      };
 
       await changePassword(data);
-      message.success("Change password thànhc công ")
+      message.success("Change password thànhc công ");
     } catch (error) {
       message.error("Đã xảy ra lỗi khi thay đổi password");
     }
@@ -99,17 +99,14 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
                       if (!value || getFieldValue("newPassword") === value) {
                         return Promise.resolve();
                       }
-                      return Promise.reject(
-                        new Error(
-                         t("notMatch")
-                        )
-                      );
+                      return Promise.reject(new Error(t("notMatch")));
                     },
                   }),
                 ]}
                 hasFeedback
               >
                 <Input.Password
+                  autoComplete="confirmNewPassword"
                   placeholder={t("enterConfirmNewPassword")}
                   iconRender={(visible) =>
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
@@ -125,26 +122,28 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
                   <ul>
                     <li>
                       <Typography.Text $fontWeight={500}>
-                       {t("requiredOne")}
+                        {t("requiredOne")}
                       </Typography.Text>
                     </li>
                     <li>
                       <Typography.Text $fontWeight={500}>
-                       {t("requiredTwo")}
+                        {t("requiredTwo")}
                       </Typography.Text>
                     </li>
                     <li>
                       <Typography.Text $fontWeight={500}>
-                       {t("requiredThree")}
+                        {t("requiredThree")}
                       </Typography.Text>
                     </li>
                   </ul>
                 </Typography.Title>
               </div>
 
-              <Form.Item>
-                <Button htmlType="submit" type="primary" loading={isLoading}>{t("update")}</Button>
-              </Form.Item>
+              <S.FormItemNotMB>
+                <Button htmlType="submit" type="primary" loading={isLoading}>
+                  {t("update")}
+                </Button>
+              </S.FormItemNotMB>
             </Form>
           </S.ContentWrapper>
         )}

@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 export const ContainerWrapper = styled.div`
   padding-top: 16px;
+
+  @media ${(props) => props.theme.breakpoints.lgMax} {
+    padding-top: 0px;
+  }
 `;
 
 export const CustomCard = styled(Card)`
@@ -35,10 +39,10 @@ export const FormItemNotMB = styled(Form.Item)`
 `;
 
 export const SelectCustom = styled(Select)`
-     .ant-select-selection-placeholder {
-        font-size: 14px !important;
-     }
-     .ant-select-selection-item {
-        font-size: 14px !important;
-     }
-`
+  .ant-select-selection-placeholder {
+    font-size: 14px !important;
+  }
+  .ant-select-selection-item {
+    font-size: 14px !important;
+  }
+`;

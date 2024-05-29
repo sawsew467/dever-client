@@ -48,7 +48,7 @@ interface IUpdateValues {
   positionId: string;
   departmetns: string[];
   school: string;
-  workspace: string;
+  workplace: string;
 }
 
 function GeneralChange({ isUserProfileLoading, userData }: IProps) {
@@ -63,6 +63,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
 
   const onFinish: FormProps<IUpdateValues>["onFinish"] = async (values) => {
     try {
+      console.log(values);
       const res = await updateUserProfile(values);
       dispatch(
         applyChangeName({
@@ -123,7 +124,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
       positionId: userData?.positionId?._id,
       departments: departmentIds,
       school: userData?.school,
-      workspace: userData?.workplace,
+      workplace: userData?.workplace,
     });
   }, [userData]);
 
@@ -297,7 +298,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
                 <Col className="gutter-row" span={handleFillGridEntryScreen()}>
                   <Form.Item
                     label={t("workspace")}
-                    name="workspace"
+                    name="workplace"
                     wrapperCol={{ span: 24 }}
                   >
                     <Input placeholder={t("enterWorkspace")} />

@@ -112,8 +112,8 @@ function SocialChange({
     }
     try {
       const res = await updateUserProfile({ socials: dataArray });
-      console.log(res);
-      refetchUserData();
+      setSocialData(res?.data?.data?.socials);
+      setIsEdit(false);
       message.success(t("updateSuccess"));
     } catch (error) {
       message.error(t("updateError"));

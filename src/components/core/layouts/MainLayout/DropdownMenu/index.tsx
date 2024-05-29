@@ -22,6 +22,8 @@ function DropdownMenu() {
   const locale = useLocale();
   const {userInfo} = useSelector((state: RootState) => state.auth)
 
+  console.log(userInfo.nickname);
+
   const { t } = useTranslation(params?.locale as string, "layout");
 
   const sideBarMenuFormat = userDropdownMenu?.map((item: any) => ({
@@ -33,7 +35,7 @@ function DropdownMenu() {
   const handleClickItem = (key: string) => {
     switch (key) {
       case "profile":
-        console.log("profile");
+        router.push(`/${locale}/profile/${userInfo.id}`);
         break;
       case "settings":
         router.push(`/${locale}/settings`)

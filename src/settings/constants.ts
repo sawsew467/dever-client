@@ -12,8 +12,8 @@ const FN = "_fname";
 const LN = "_lname";
 const ACCESS_TOKEN = '_access_token';
 const REFRESH_TOKEN = '_refresh_token';
-const IS_AUTH = '_is_auth'
-;
+const IS_AUTH = '_is_auth';
+const NICK_NANE = '_nname';
 
 const MAX_SUB_ACCOUNT = 4;
 
@@ -39,7 +39,8 @@ const constants = {
   API_SERVER_SOCKET,
   MAIL,
   FN,
-  LN
+  LN,
+  NICK_NANE
 };
 
 export default constants;

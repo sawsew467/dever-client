@@ -49,7 +49,7 @@ function FavouritiesChange({ isUserProfileLoading, userData }: IProps) {
 
   const handleClose = (removedTag: string) => {
     const newTags = tags.filter((tag) => tag !== removedTag);
-    console.log(newTags);
+    setIsHaveNewTag(true);
     setTags(newTags);
   };
 

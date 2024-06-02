@@ -111,7 +111,7 @@ const MainLayout = ({
     label: t(item.label),
     link: `/${item.key}`,
   }));
-
+  
   return (
     <>
       {!isAuth ? (

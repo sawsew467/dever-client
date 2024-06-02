@@ -7,6 +7,7 @@ import { baseApi } from "../base";
 
 export const authAPI = baseApi.injectEndpoints({
   endpoints: (build) => ({
+    
     getMyProfile: build.query<any, string>({
       query: (id) => ({
         url: endpointSettings.GET_PROFILE.replace("{id}", id),
@@ -24,7 +25,6 @@ export const authAPI = baseApi.injectEndpoints({
       }),
     }),
 
-    
     changePassword: build.mutation({
       query: (body: {
         oldPassword: string;

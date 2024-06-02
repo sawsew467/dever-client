@@ -1,4 +1,18 @@
 {
   "welcome": "Xin chào",
-  "description": "Vui lòng đăng nhập để vào trang quản trị Phòng khảo thí"
+  "description": "Vui lòng đăng nhập để truy cập hệ thống thành viên Fu - Dever",
+
+  
+  "enterEmail": "Nhập email của bạn",
+  "password": "Mật khẩu",
+  "enterPassword": "Nhập mật khẩu của bạn",
+  "rememberMe": "Ghi nhớ thông tin đăng nhập",
+  "forgotPassword": "Quên mật khẩu",
+
+  "signIn": "Đăng nhập",
+  "dontHaveAccount": "Bạn không có tài khoản?",
+  "signUp": "Đăng ký",
+
+  "emailError": "Vui lòng nhập email của bạn",
+  "passwordError": "Vui lòng nhập mật khẩu của bạn"
 }

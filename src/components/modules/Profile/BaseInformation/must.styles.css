@@ -1,0 +1,16 @@
+
+
+.ant-image-mask:hover {
+    border-radius: 12px;
+}
+
+
+.ant-image-mask {
+    border-radius: 12px;
+    width: 140px; 
+    height: 140px;
+}
+
+.ant-image-preview-img {
+    border-radius: 12px !important;
+}

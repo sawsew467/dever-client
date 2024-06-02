@@ -1,15 +1,13 @@
 "use client";
 
 import {
-  endpointAllMember,
-  endpointAuth,
-  endpointSettings,
-  endpointUsersManagement,
+  endpointSettings
 } from "@/helpers/enpoints";
 import { baseApi } from "../base";
 
 export const authAPI = baseApi.injectEndpoints({
   endpoints: (build) => ({
+    
     getMyProfile: build.query<any, string>({
       query: (id) => ({
         url: endpointSettings.GET_PROFILE.replace("{id}", id),
@@ -21,6 +19,18 @@ export const authAPI = baseApi.injectEndpoints({
     updateUserProfile: build.mutation({
       query: (body: any) => ({
         url: endpointSettings.EDIT_PROFILE,
+        method: "PATCH",
+        body: body,
+        flashError: true,
+      }),
+    }),
+
+    changePassword: build.mutation({
+      query: (body: {
+        oldPassword: string;
+        newPassword: string;
+      }) => ({
+        url: endpointSettings.CHANGE_PASSWORD,
         method: "PATCH",
         body: body,
         flashError: true,
@@ -69,5 +79,6 @@ export const {
   useGetSocialEnumsQuery,
   useGetPositionEnumsQuery,
   useGetDepartmentEnumsQuery,
-  useGetMajorEnumsQuery
+  useGetMajorEnumsQuery,
+  useChangePasswordMutation
 } = authAPI;

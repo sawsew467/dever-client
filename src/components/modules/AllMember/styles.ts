@@ -23,7 +23,7 @@ export const Head = styled.div`
   }
 `;
 export const HeadTitle = styled.div`
- display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -60,12 +60,10 @@ export const ItemWrapper = styled.div`
   display: flex;
   flex-direction: row;
 
-  
-  @media ${props => props.theme.breakpoints.smMax} {
-      max-width: 100%;
-      gap: 16px;
+  @media ${(props) => props.theme.breakpoints.smMax} {
+    max-width: 100%;
+    gap: 16px;
   }
-
 `;
 export const FilterWrapper = styled.div`
   width: 40px;
@@ -98,21 +96,22 @@ export const MapWrapper = styled.div`
   gap: 20px;
 `;
 export const SpinWrapper = styled.div`
-   width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const InputCustom = styled(Input)`
   width: 100%;
-  @media ${props => props.theme.breakpoints.smMax} {
-      width: 400px !important;
-    }
+  @media ${(props) => props.theme.breakpoints.smMax} {
+    width: 400px !important;
+  }
 `;
 
 export const RowCustom = styled(Row)`
-  @media ${props => props.theme.breakpoints.mdMax} {
-      gap: 12px;
-    }
+  @media ${(props) => props.theme.breakpoints.mdMax} {
+    gap: 12px;
+  }
 `;

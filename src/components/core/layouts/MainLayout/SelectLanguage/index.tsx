@@ -10,8 +10,8 @@ import { useLocale } from "next-intl";
 import { getPathname } from "@/utils/getPathname";
 import { useTranslation } from "@/app/i18n/client";
 
-import usa from "@public/images/languages/usa.webp";
-import vietnam from "@public/images/languages/vietnam.png";
+import EnglandFlag from "@public/images/languages/englandFlag.png";
+import VietnamFlag from "@public/images/languages/vietnamFlag.png";
 
 import * as S from "./styles";
 
@@ -39,10 +39,11 @@ function SelectLanguage() {
         <Avatar
           src={
             <Image
-              src={"/images/languages/usa.webp"}
-              alt="bell"
-              width={20}
-              height={20}
+              src={EnglandFlag}
+              alt="flag"
+              width={200}
+              height={200}
+              priority
             />
           }
           size="small"
@@ -56,10 +57,11 @@ function SelectLanguage() {
         <Avatar
           src={
             <Image
-              src={"/images/languages/vietnam.png"}
-              alt="bell"
-              width={20}
-              height={20}
+              src={VietnamFlag}
+              alt="flag"
+              width={200}
+              height={200}
+              priority
             />
           }
           size="small"
@@ -86,17 +88,18 @@ function SelectLanguage() {
         <Avatar
           src={
             <Image
-              src={localActive === "en" ? usa : vietnam}
+              src={localActive === "en" ? EnglandFlag : VietnamFlag}
               alt="bell"
-              width={20}
-              height={20}
+              width={200}
+              height={200}
+              priority
             />
           }
           size="small"
         />
         <Flex align="center" gap={4}>
           <Typography.Text>
-            {localActive === "en" ? t("english") : t("vietnamese")}
+            {localActive === "en" ? "EN" : "VN"}
           </Typography.Text>
           <CaretDownOutlined />
         </Flex>

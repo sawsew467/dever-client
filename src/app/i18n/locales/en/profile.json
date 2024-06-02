@@ -1,0 +1,52 @@
+{
+  "profile": "Profile",
+  "notSetYet": "Not set yet",
+  "noContent": "No content available",
+
+  "email": "Email",
+  "hometown": "Home address",
+  "phone": "Phone number",
+  "socials": "Socials",
+
+  "general": "General information",
+  "aboutMe": "About me",
+  "joinedSystemDate": "Joined system date",
+  "education": "Education",
+  "position": "Position",
+  "department": "Department",
+  "workplace": "Workplace",
+  "major": "Major",
+
+  "skills": "Skills",
+  "skillsDescriptions": "Programming skills that I have",
+
+  
+  "favourites": "Favorites",
+  "favouritesDescriptions": "My favorites that you may know",
+
+  "THUKYBANSUKIEN": "Secretary of Events",
+  "MEMBER": "Member",
+  "CHUNHIEM": "President",
+  "THUKY": "Secretary",
+  "PHOCHUNHIEM": "Vice President",
+  "TRUONGBANHOCTHUAT": "Head of Academics",
+  "PHOBANHOCTHUAT": "Deputy Head of Academics",
+  "THUKYBANHOCTHUAT": "Secretary of Academics",
+  "TRUONGBANSUKIEN": "Head of Events",
+  "PHOBANSUKIEN": "Deputy Head of Events",
+  "TRUONGBANTRUYENTHONG": "Head of Communications",
+  "PHOBANTRUYENTHONG": "Deputy Head of Communications",
+  "THUKYBANTRUYENTHONG": "Secretary of Communications",
+  "FRONTENDLEAD": "Front-End Lead",
+  "BACKENDLEAD": "Back-End Lead",
+
+  "MEDIA": "Media Ban",
+  "EVENT": "Event Ban",
+  "ACADEMIC": "Academic Ban",
+
+  "ENGINEERING": "Software Engineering",
+  "SECURITY": "Information security ",
+  "AI": "Artificial intelligence",
+  "DESIGN": "Digital graphic design",
+  "DMARKETING": "Digital marketing"
+}

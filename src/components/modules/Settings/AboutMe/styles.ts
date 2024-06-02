@@ -1,13 +1,17 @@
 import { Card } from "antd";
 import styled from "styled-components";
 
-export const ContentWrapperDiv = styled.div``;
+export const ContentWrapperDiv = styled.div`
+  @media ${(props) => props.theme.breakpoints.lgMax} {
+    padding-top: 16px;
+  }
+`;
 
 export const HtmlRenderWrapper = styled.div`
   img {
     max-width: 100%;
     object-fit: cover;
-    }
+  }
 `;
 
 export const LGalleryCol = styled.div`

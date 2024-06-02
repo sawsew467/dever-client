@@ -1,0 +1,52 @@
+{
+  "profile": "Trang cá nhân",
+  "notSetYet": "Chưa cập nhật",
+  "noContent": "Không có nội dung hợp lệ",
+  
+  "email": "Email",
+  "hometown": "Địa chỉ nhà",
+  "phone": "Số điện thoại",
+  "socials": "Mạng xã hội",
+
+  "general": "Thông tin chung",
+  "aboutMe": "Về bản thân tôi",
+  "joinedSystemDate": "Ngày tham gia hệ thống",
+  "education": "Giáo dục",
+  "position": "Vị trí CLB ",
+  "department": "Ban hoạt động",
+  "workplace": "Nơi làm việc",
+  "major": "Chuyên ngành",
+
+  "skills": "Kỹ năng",
+  "skillsDescriptions": "Các kỹ năng lập trình tôi có",
+  
+  "favourites": "Sở thích",
+  "favouritesDescriptions": "Các sở thích của tôi mà bạn có thể biết",
+
+  "THUKYBANSUKIEN": "Thư ký ban sự kiện",
+  "MEMBER": "Thành viên",
+  "CHUNHIEM": "Chủ nhiệm",
+  "THUKY": "Thư ký",
+  "PHOCHUNHIEM": "Phó chủ nhiệm",
+  "TRUONGBANHOCTHUAT": "Trưởng ban học thuật",
+  "PHOBANHOCTHUAT": "Phó ban học thuật",
+  "THUKYBANHOCTHUAT": "Thư ký ban học thuật",
+  "TRUONGBANSUKIEN": "Trưởng ban sự kiện",
+  "PHOBANSUKIEN": "Phó ban sự kiện",
+  "TRUONGBANTRUYENTHONG": "Trưởng ban truyền thông",
+  "PHOBANTRUYENTHONG": "Phó ban truyền thông",
+  "THUKYBANTRUYENTHONG": "Thư ký ban truyền thông",
+  "FRONTENDLEAD": "Front-End Lead",
+  "BACKENDLEAD": "Back-End Lead",
+
+  "MEDIA": "Ban truyền thông",
+  "EVENT": "Ban sự kiện",
+  "ACADEMIC": "Ban học thuật",
+
+  "ENGINEERING": "Kỹ thuật phần mềm",
+  "SECURITY": "An toàn thông tin ",
+  "AI": "Trí tuệ nhân tạo",
+  "DESIGN": "Thiết kế đồ họa",
+  "DMARKETING": "Digital marketing"
+
+}

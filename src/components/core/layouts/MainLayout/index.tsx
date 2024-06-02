@@ -25,13 +25,13 @@ import { themes } from "@/style/themes";
 import webStorageClient from "@/utils/webStorageClient";
 
 import { constants } from "@/settings";
-import { RootState } from "@/store";
 import { assignUserInfo } from "@/store/slices/auth";
-import { useDispatch, useSelector } from "react-redux";
-import * as S from "./styles";
 import themeColors from "@/style/themes/default/colors";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { useOutsideAlerter } from "@/hooks/useOutsideClick";
+import { useDispatch } from "react-redux";
+import * as S from "./styles";
+import { UserInfo } from "@/helpers/types/userTypes";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux-toolkit";
 
 const MainLayout = ({
   children,
@@ -44,7 +44,7 @@ const MainLayout = ({
   const pathname = usePathname();
   const { useBreakpoint } = Grid;
   const screens = useBreakpoint();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [verifyToken] = useVerifyTokenMutation();
 
   const wrapperRef: any = useRef(null);
@@ -56,9 +56,8 @@ const MainLayout = ({
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
   const [isAuth, setIsAuth] = useState<boolean>(false);
 
-  const email = webStorageClient.get(constants.MAIL);
-  const fname = webStorageClient.get(constants.FN);
-  const lname = webStorageClient.get(constants.LN);
+  const {userInfo} = useAppSelector((state) => state.auth);
+
   const avatar = webStorageClient.get(constants.AVT);
 
   const handleVerifyToken = useCallback(async () => {
@@ -67,20 +66,21 @@ const MainLayout = ({
         message.error(t("token_not_valid"));
         throw new Error(t("token_not_valid"));
       }
-      const res: any = await verifyToken(
+      const res: {data: UserInfo} = await verifyToken(
         webStorageClient.get("_access_token") || "??"
       ).unwrap();
-
+      console.log(res);
       setIsAuth(true);
       message.success(t("checkedAccess"));
 
       dispatch(
         assignUserInfo({
-          email: email,
-          firstname: fname,
-          lastname: lname,
-          avatar: avatar,
-          nickname: "",
+          id: res?.data?._id,
+          email: res?.data?.email,
+          firstname: res?.data?.firstname,
+          lastname: res?.data?.lastname,
+          avatar: res?.data?.avatar,
+          nickname: res?.data?.nickname,
         })
       );
     } catch (error) {
@@ -89,7 +89,7 @@ const MainLayout = ({
       router.push(`/${localActive}/sign-in`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [avatar, dispatch, email, fname, lname, localActive, router, verifyToken]);
+  }, [dispatch, localActive, router, verifyToken]);
 
   useEffect(() => {
     function handleClickOutside(event: any) {
@@ -112,7 +112,7 @@ const MainLayout = ({
     label: t(item.label),
     link: `/${item.key}`,
   }));
-
+  
   return (
     <>
       {!isAuth ? (
@@ -208,14 +208,14 @@ const MainLayout = ({
                   <S.AvatarCustom
                     size={40}
                     src={
-                      <Image src={avatar} alt="avatar" width={64} height={64} />
+                      <Image src={userInfo.avatar!} alt="avatar" width={64} height={64} />
                     }
                   />
                 </Flex>
               </Popover>
               {screens.xs && (
-                <S.MenuIcon onClick={() => setCollapsedMobile(!collapsed)}>
-                  {collapsed ? (
+                <S.MenuIcon onClick={() => setCollapsedMobile(!collapsedMobile)}>
+                  {collapsedMobile ? (
                     <MenuFoldOutlined style={{ fontSize: "24px" }} />
                   ) : (
                     <MenuUnfoldOutlined style={{ fontSize: "24px" }} />
@@ -244,9 +244,6 @@ const MainLayout = ({
             </S.SiderCustom>
             <S.LayoutCustom>
               <S.ContentCustom>{children}</S.ContentCustom>
-              {/* <S.FooterCustom>
-                <p>COPYRIGHT © 2024 FU-DEVER All rights Reserved</p>
-              </S.FooterCustom> */}
             </S.LayoutCustom>
           </Layout>
         </S.ContainerLayoutCustom>

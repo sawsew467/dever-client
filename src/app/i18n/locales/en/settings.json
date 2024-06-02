@@ -76,7 +76,27 @@
     "SECURITY": "Information security ",
     "AI": "Artificial intelligence",
     "DESIGN": "Digital graphic design",
-    "DMARKETING": "Digital marketing"
+    "DMARKETING": "Digital marketing",
+
+    "skills": "Skills",
+    "favouries": "Hobbies",
+    "enterNewTag": "Enter new tag",
+
+    "changePassword": "Change password",
+    "currentPassword": "Current password",
+    "enterCurrentPassword": "Enter current password",
+    "newPassword": "New password",
+    "enterNewPassword": "Enter new password",
+    "confirmNewPassword": "Confirm new password",
+    "enterConfirmNewPassword": "Enter confirm new password",
+    "required": "Password requirements:",
+    "ensure": "Ensure that these requirements are met:",
+    "requiredOne": " At least 10 characters (and up to 36 characters)",
+    "requiredTwo": "At least one lowercase or uppercase character",
+    "requiredThree": "Inclusion of at least one special character, e.g., ! @ # ?",
+
+    "strongPassword": "Please enter more stronger password",
+    "notMatch": "The new password that you entered do not match!"
 
 
 }

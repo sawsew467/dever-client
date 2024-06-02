@@ -60,10 +60,10 @@ function SignInModule() {
         $align="center"
         $margin="32px 0px 16px 0"
       >
-        {t("welcome")} 👋
+        {t("welcome")}
       </Typography.Title>
       <Typography.Text $align="center" $margin="0px 0px 32px 0">
-        {t("description")} 👋
+        {t("description")}
       </Typography.Text>
       <Form
         name="basic"
@@ -75,21 +75,21 @@ function SignInModule() {
           label="Email"
           name="email"
           wrapperCol={{ span: 24 }}
-          rules={[{ required: true, message: "Please input your username!" }]}
+          rules={[{ required: true, message: t("emailError") }]}
         >
           <Input
-            placeholder="Enter your email"
+            placeholder={t("enterEmail")}
             autoComplete="current-password"
           />
         </Form.Item>
 
         <Form.Item<FieldType>
-          label="Password"
+          label={t("password")}
           name="password"
           wrapperCol={{ span: 24 }}
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[{ required: true, message: t("passwordError") }]}
         >
-          <Input.Password placeholder="Enter your password" />
+          <Input.Password placeholder={t("enterPassword")} />
         </Form.Item>
 
         <Col span={24}>
@@ -99,9 +99,9 @@ function SignInModule() {
               name="remember"
               valuePropName="checked"
             >
-              <Checkbox>Remember me</Checkbox>
+              <Checkbox>{t("rememberMe")}</Checkbox>
             </Form.Item>
-            <Link href={""}>Forget Password?</Link>
+            <Link href={""}>{t("forgotPassword")}</Link>
           </Flex>
         </Col>
 
@@ -112,13 +112,13 @@ function SignInModule() {
             $width="100%"
             loading={isLoading}
           >
-            Xác nhận
+            {t("signIn")}
           </Button>
         </Form.Item>
       </Form>
       <Flex justify="center" gap={4}>
-        <p>Don&apos;t have an account?</p>
-        <Link href={`/${locale}/sign-up`}>Sign up</Link>
+        <p>{t("dontHaveAccount")}</p> 
+        <Link href={`/${locale}/sign-up`}>{t("signUp")}</Link>
       </Flex>
     </S.Wrapper>
   );

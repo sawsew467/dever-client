@@ -60,7 +60,7 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
                 <S.HtmlRenderWrapper
                   dangerouslySetInnerHTML={{
                     __html: `${
-                      isUpdateSuccess ? idleText : userData.description
+                      isUpdateSuccess ? idleText : userData?.description ?? t("noContent")
                     }`,
                   }}
                 ></S.HtmlRenderWrapper>

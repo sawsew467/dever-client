@@ -15,6 +15,7 @@ import webStorageClient from "@/utils/webStorageClient";
 import { constants } from "@/settings";
 import { applyChangeAvatar } from "@/store/slices/auth";
 import { useTranslation } from "@/app/i18n/client";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux-toolkit";
 
 interface IProps {
   isProfileFetching: boolean;
@@ -25,9 +26,11 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
   const [imageUrl, setImageUrl] = useState<string>("");
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const [updateUserProfile] = useUpdateUserProfileMutation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const params = useParams();
   const { t } = useTranslation(params?.locale as string, "settings");
+
+  const {userInfo} = useAppSelector((state) => state.auth);
 
   const handleUpload = async ({
     onSuccess,
@@ -87,7 +90,7 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
               />
             ) : (
               <Image
-                src={imageUrl == "" ? webStorageClient.get(constants.AVT) : imageUrl}
+                src={imageUrl == "" ? userInfo.avatar! : imageUrl}
                 width={500}
                 height={500}
                 alt="avatar"

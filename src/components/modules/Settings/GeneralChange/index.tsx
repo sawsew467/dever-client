@@ -14,7 +14,7 @@ import {
   Skeleton,
   Typography,
 } from "antd";
-import moment from "moment";
+
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -48,7 +48,7 @@ interface IUpdateValues {
   positionId: string;
   departmetns: string[];
   school: string;
-  workspace: string;
+  workplace: string;
 }
 
 function GeneralChange({ isUserProfileLoading, userData }: IProps) {
@@ -114,7 +114,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
     myForm.setFieldsValue({
       firstname: userData?.firstname,
       lastname: userData?.lastname,
-      dob: dayjs(userData?.dob),
+      dob: userData?.dob !== null ? dayjs(userData?.dob) : undefined,
       gen: userData.gen,
       MSSV: userData.MSSV,
       hometown: userData?.hometown,
@@ -123,7 +123,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
       positionId: userData?.positionId?._id,
       departments: departmentIds,
       school: userData?.school,
-      workspace: userData?.workplace,
+      workplace: userData?.workplace,
     });
   }, [userData]);
 
@@ -297,7 +297,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
                 <Col className="gutter-row" span={handleFillGridEntryScreen()}>
                   <Form.Item
                     label={t("workspace")}
-                    name="workspace"
+                    name="workplace"
                     wrapperCol={{ span: 24 }}
                   >
                     <Input placeholder={t("enterWorkspace")} />

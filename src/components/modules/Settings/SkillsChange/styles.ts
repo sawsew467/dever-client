@@ -1,4 +1,4 @@
-import { Card, Form } from "antd";
+import { Card, Form, Tag } from "antd";
 import styled from "styled-components";
 
 export const ContainerWrapper = styled.div`
@@ -30,3 +30,18 @@ export const TagsWrapper = styled.div`
 export const TagsList = styled.div`
 
 `;
+
+export const TagCustom = styled(Tag)`
+    width: fit-content;
+
+    font-size: 16px !important;
+    
+    padding: 8px !important;
+    margin-top: 8px !important;
+    border-radius: 12px !important;
+     
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+`; 

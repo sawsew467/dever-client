@@ -1,4 +1,17 @@
 {
   "welcome": "Welcome",
-  "description": "Please log in to access the Examination Department administration page"
+  "description": "Please log in to access the Fu - Dever members system",
+
+  "enterEmail": "Enter your email",
+  "password": "Password",
+  "enterPassword": "Enter your password",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot password",
+
+  "signIn": "Sign In",
+  "dontHaveAccount": "Don't have account?",
+  "signUp": "Sign Up",
+
+  "emailError": "Please enter your email",
+  "passwordError": "Please enter your password"
 }

@@ -13,6 +13,7 @@ import {
   Row,
   Select,
   SelectProps,
+  Skeleton,
   Spin,
   Typography
 } from "antd";
@@ -80,9 +81,6 @@ function AllMemberModule() {
       },
     }
   );
-
-  console.log(result);
-
   const departmentData: InterfaceEnumsData = useGetAllDepartmentsQuery(
     undefined,
     {
@@ -299,9 +297,18 @@ function AllMemberModule() {
         <S.ComponentsWrapper>
           {isFetching ? (
             <>
-              <S.SpinWrapper>
-                <Spin size="large"></Spin>
-              </S.SpinWrapper>
+              <Row gutter={16}>
+                {
+                  Array.from({length: 20}).map((_, index) => (
+                    <Col xs={12} sm={8} md={6} lg={6} xl={4} key={index}>
+                      <Flex vertical gap={10} style={{marginBottom: 16}}>
+                        <Skeleton.Image active style={{width: "100%", height: "220px"}} />
+                        <Skeleton.Input active style={{width:"100%"}}/>
+                      </Flex>
+                    </Col>
+                  ))
+                }
+              </Row>
             </>
           ) : (
             <Row gutter={16}>

@@ -23,7 +23,13 @@ const endpointSettings = {
   SOCIAL_ENUMS: `${prefixBase}/social`,
   POSITION_ENUMS: `${prefixBase}/position`,
   DEPARTMENT_ENUMS: `${prefixBase}/department`,
-  MAJOR_ENUMS: `${prefixBase}/major`
+  MAJOR_ENUMS: `${prefixBase}/major`,
+  CHANGE_PASSWORD: `${prefixBase}/edit-profile/change-password`
+}
+
+const endpointProfile = {
+  GET_PROFILE_BY_ID: `${prefixBase}/users/{id}`,
+  GET_PROFILE_BY_SLUG: `${prefixBase}/users/slug/{name}`
 }
 
 const endpointUsersManagement = {
@@ -78,5 +84,6 @@ export {
   endpointSocialManagement,
   endpointImageActivityManagement,
   endpointAllMember,
-  endpointSettings
+  endpointSettings,
+  endpointProfile 
 };

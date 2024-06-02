@@ -52,6 +52,7 @@ const MainLayout = ({
   const { t } = useTranslation(params?.locale as string, "layout");
 
   const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [collapsedMobile, setCollapsedMobile] = useState<boolean>(true);
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
   const [isAuth, setIsAuth] = useState<boolean>(false);
 
@@ -93,7 +94,7 @@ const MainLayout = ({
   useEffect(() => {
     function handleClickOutside(event: any) {
       if (wrapperRef.current && !wrapperRef.current?.contains(event.target)) {
-        // setCollapsed(true);
+        setCollapsedMobile(true);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -124,7 +125,7 @@ const MainLayout = ({
             options={{ showSpinner: false }}
             shallowRouting
           />
-          <S.MobileSider $collapsed={collapsed}>
+          <S.MobileSider $collapsed={collapsedMobile}>
             <S.SiderContainer ref={wrapperRef}>
               <S.LogoWrapper>
                 <div className="demo-logo-vertical">
@@ -213,8 +214,8 @@ const MainLayout = ({
                 </Flex>
               </Popover>
               {screens.xs && (
-                <S.MenuIcon onClick={() => setCollapsed(!collapsed)}>
-                  {collapsed ? (
+                <S.MenuIcon onClick={() => setCollapsedMobile(!collapsedMobile)}>
+                  {collapsedMobile ? (
                     <MenuFoldOutlined style={{ fontSize: "24px" }} />
                   ) : (
                     <MenuUnfoldOutlined style={{ fontSize: "24px" }} />

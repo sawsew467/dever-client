@@ -13,9 +13,8 @@ const endpointAllMember = {
   GET_ALL_MEMBERS: `${prefixBase}/users/`,
   GET_ALL_DEPARTMENTS: `${prefixBase}/department`,
   GET_ALL_POSITION: `${prefixBase}/position`,
-  GET_ALL_MAJOR: `${prefixBase}/major`
-
-}
+  GET_ALL_MAJOR: `${prefixBase}/major`,
+};
 
 const endpointSettings = {
   GET_PROFILE: `${prefixBase}/users/{id}`,
@@ -23,8 +22,8 @@ const endpointSettings = {
   SOCIAL_ENUMS: `${prefixBase}/social`,
   POSITION_ENUMS: `${prefixBase}/position`,
   DEPARTMENT_ENUMS: `${prefixBase}/department`,
-  MAJOR_ENUMS: `${prefixBase}/major`
-}
+  MAJOR_ENUMS: `${prefixBase}/major`,
+};
 
 const endpointUsersManagement = {
   GET_ALL_USERS: `${prefixBase}/users/`,
@@ -66,6 +65,11 @@ const endpointImageActivityManagement = {
   IMAGE: `${prefixBase}/image-activity`,
 };
 
+const endpointLeetcode = {
+  GET_LEADERBOARD: `${prefixBase}/leetcode/`,
+  SUBCRIBE_LEADERBOARD: `${prefixBase}/leetcode/subcribe`,
+};
+
 const endpointOther = {};
 
 export {
@@ -78,5 +82,6 @@ export {
   endpointSocialManagement,
   endpointImageActivityManagement,
   endpointAllMember,
-  endpointSettings
+  endpointSettings,
+  endpointLeetcode,
 };

@@ -34,14 +34,14 @@ export const sidebarMenu: MenuProps["items"] = [
   //   icon: React.createElement(LinkOutlined),
   //   label: "socialManagement",
   // },
-  // {
-  //   key: "image-activity-management",
-  //   icon: React.createElement(BookOutlined),
-  //   label: "imageActivityManagement",
-  // },
   {
     key: "all-member",
     icon: React.createElement(UserOutlined),
     label: "allMember",
+  },
+  {
+    key: "leetcode",
+    icon: React.createElement(BookOutlined),
+    label: "leetcode",
   },
 ];

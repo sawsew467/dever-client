@@ -24,6 +24,8 @@ function LeetcodeModule() {
     },
   });
 
+  console.log(result);
+
   return (
     <S.PageWrapper>
       <S.Head>

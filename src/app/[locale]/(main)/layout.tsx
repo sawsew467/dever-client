@@ -15,7 +15,6 @@ export default function RootMainLayout({
 }>) {
   const token = getCookie(constants.ACCESS_TOKEN, { cookies });
 
-  console.log(token);
 
   if (!token) {
     redirect(`/${locale}/sign-in`);

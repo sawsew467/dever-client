@@ -38,7 +38,6 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
     file,
     onProgress,
   }: any) => {
-    console.log(file);
     const fmData = new FormData();
     const config = {
       headers: { "content-type": "multipart/form-data" },
@@ -63,7 +62,7 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
         const data = {
           avatar: res?.data?.data?.url,
         };
-        console.log(data);
+
         updateUserProfile(data).unwrap();
         webStorageClient.set(constants.AVT, res?.data?.data?.url);
         dispatch(applyChangeAvatar(res?.data?.data?.url))

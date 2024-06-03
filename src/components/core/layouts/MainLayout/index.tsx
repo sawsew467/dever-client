@@ -69,7 +69,6 @@ const MainLayout = ({
       const res: {data: UserInfo} = await verifyToken(
         webStorageClient.get("_access_token") || "??"
       ).unwrap();
-      console.log(res);
       setIsAuth(true);
       message.success(t("checkedAccess"));
 

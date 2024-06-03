@@ -27,7 +27,6 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
 
   const onFishish: FormProps<IUpdateValues>["onFinish"] = async (values) => {
     try {
-      console.log(values);
       const data = {
         oldPassword: values.oldPassword,
         newPassword: values.newPassword,

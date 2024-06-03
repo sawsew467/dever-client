@@ -25,8 +25,6 @@ function ProfileModule({ userInfo }: IProps) {
   const { useBreakpoint } = Grid;
   const screens = useBreakpoint();
 
-  console.log(screens);
-
   const { profileData, isFetching, refetch } = useGetProfileQuery(userInfo, {
     selectFromResult: ({ data, isFetching }) => {
       return {
@@ -35,8 +33,6 @@ function ProfileModule({ userInfo }: IProps) {
       };
     },
   });
-
-  console.log(profileData);
 
   useEffect(() => {
     refetch();

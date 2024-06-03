@@ -72,6 +72,11 @@ const endpointImageActivityManagement = {
   IMAGE: `${prefixBase}/image-activity`,
 };
 
+const endpointLeetcode = {
+  GET_LEADERBOARD: `${prefixBase}/leetcode/`,
+  SUBCRIBE_LEADERBOARD: `${prefixBase}/leetcode/subcribe`,
+};
+
 const endpointOther = {};
 
 export {
@@ -85,5 +90,6 @@ export {
   endpointImageActivityManagement,
   endpointAllMember,
   endpointSettings,
-  endpointProfile 
+  endpointProfile ,
+  endpointLeetcode
 };

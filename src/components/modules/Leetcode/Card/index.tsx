@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Flex } from "antd";
+import { Flex, Grid } from "antd";
 
 import Typography from "@/components/core/common/Typography";
 
@@ -14,6 +14,10 @@ function Card({
   top: number;
   isTop1?: boolean;
 }) {
+
+  const { useBreakpoint } = Grid;
+  const screens = useBreakpoint();
+
   return (
     <S.Main $isTop1={isTop1}>
       {isTop1 && (
@@ -25,7 +29,7 @@ function Card({
       </S.ImageWrapper>
       <S.Content>
         <Typography.Title
-          level={3}
+          level={screens.md ? 3 : 5} $align="center"
         >{`${data?.userId?.firstname} ${data?.userId?.lastname}`}</Typography.Title>
         <Flex justify="center" gap={4}>
           <Image src={"/icons/leetcode.svg"} alt="" width={20} height={20} />

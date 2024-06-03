@@ -58,11 +58,7 @@ export const authSlice = createSlice({
       (state, action) => {
         webStorageClient.setToken(action?.payload?.data?.token);
         webStorageClient.set(constants.USER_INFO, action?.payload?.data?.user?._id)
-      
-      
-        // webStorageClient.set(constants.USER_INFO, action?.payload.user._id);
-        // webStorageClient.set(constants.IS_AUTH, true);
-        // state.isAuth = true;
+        
         state.userInfo = action?.payload?.data?.user;
         state.access_token = action?.payload?.data?.token;
       }

@@ -69,5 +69,10 @@ export const ImageWrapper = styled.div`
     @media ${(props) => props.theme.breakpoints.lgMax} {
       height: 200px;
     }
+    
+    @media ${(props) => props.theme.breakpoints.smMax} {
+      height: 130px;
+      border: 2px solid ${(props) => props.theme.colors.primary};
+    }
   }
 `;

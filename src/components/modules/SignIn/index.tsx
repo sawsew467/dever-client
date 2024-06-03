@@ -36,7 +36,6 @@ function SignInModule() {
     try {
       const res: any = await signIn(values).unwrap();
 
-      console.log(res);
       router?.push(`/${locale}/all-member`);
     } catch (error) {
       

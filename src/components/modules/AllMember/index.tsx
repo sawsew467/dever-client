@@ -15,14 +15,13 @@ import {
   SelectProps,
   Skeleton,
   Spin,
-  Typography
+  Typography,
 } from "antd";
 
 import _ from "lodash";
 import { useRouter } from "next-nprogress-bar";
 import Image from "next/image";
 import { useParams, useSearchParams } from "next/navigation";
-
 
 import { useTranslation } from "@/app/i18n/client";
 import { UserEnum, UserInfo } from "@/helpers/types/userTypes";
@@ -34,8 +33,10 @@ import {
 } from "@/store/queries/allMember";
 import { createQueryString } from "@/utils/queryString";
 import FilterIconWhite from "@public/icons/layout/allMembers/filter-white.svg";
+
 import FilterIcon from "@public/icons/layout/allMembers/filter.svg";
 import SearchIcon from "@public/icons/layout/allMembers/search.svg";
+import FroalaEditor from "react-froala-wysiwyg";
 
 interface InterfaceEnumsData {
   result: SelectProps["options"];
@@ -188,10 +189,9 @@ function AllMemberModule() {
                 </Button>
               </Flex>
             )}
-            
           </S.ItemWrapper>
         </S.HeadTitle>
-        {!screens.xs || isShowMenu ?  (
+        {!screens.xs || isShowMenu ? (
           <S.HeadFilter>
             <S.RowCustom gutter={16}>
               <Col xs={24} md={6}>
@@ -298,16 +298,17 @@ function AllMemberModule() {
           {isFetching ? (
             <>
               <Row gutter={16}>
-                {
-                  Array.from({length: 20}).map((_, index) => (
-                    <Col xs={12} sm={8} md={6} lg={6} xl={4} key={index}>
-                      <Flex vertical gap={10} style={{marginBottom: 16}}>
-                        <Skeleton.Image active style={{width: "100%", height: "220px"}} />
-                        <Skeleton.Input active style={{width:"100%"}}/>
-                      </Flex>
-                    </Col>
-                  ))
-                }
+                {Array.from({ length: 20 }).map((_, index) => (
+                  <Col xs={12} sm={8} md={6} lg={6} xl={4} key={index}>
+                    <Flex vertical gap={10} style={{ marginBottom: 16 }}>
+                      <Skeleton.Image
+                        active
+                        style={{ width: "100%", height: "220px" }}
+                      />
+                      <Skeleton.Input active style={{ width: "100%" }} />
+                    </Flex>
+                  </Col>
+                ))}
               </Row>
             </>
           ) : (

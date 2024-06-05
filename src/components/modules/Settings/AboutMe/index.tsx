@@ -38,11 +38,11 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
       setIsUpdateSuccess(true);
       setIdleText(textEditorData);
       setIsEdit(false);
-      message.success(t('updateSuccess'));
+      message.success(t("updateSuccess"));
     } catch (error) {
       setIsUpdateSuccess(false);
       const err = new Error("Some error");
-      message.error(t('updateError'));
+      message.error(t("updateError"));
     }
   };
 
@@ -60,7 +60,9 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
                 <S.HtmlRenderWrapper
                   dangerouslySetInnerHTML={{
                     __html: `${
-                      isUpdateSuccess ? idleText : userData?.description ?? t("noContent")
+                      isUpdateSuccess
+                        ? idleText
+                        : userData?.description ?? t("noContent")
                     }`,
                   }}
                 ></S.HtmlRenderWrapper>
@@ -85,10 +87,7 @@ function AboutMe({ isUserProfileFetching, userData }: IProps) {
                 gap: 16,
               }}
             >
-              <CustomEditor
-                getData={setTextEditorData}
-                data={isUpdateSuccess? idleText : userData.description}
-              />
+              <CustomEditor getData={setTextEditorData} data={textEditorData} />
               <Button
                 type="primary"
                 style={{ width: "fit-content" }}

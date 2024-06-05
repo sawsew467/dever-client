@@ -36,7 +36,7 @@ function ProfileModule({ userInfo }: IProps) {
 
   useEffect(() => {
     refetch();
-  }, []);
+  }, [refetch]);
   return (
     <S.PageWrapper>
       <S.Head>

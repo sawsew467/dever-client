@@ -1,39 +1,39 @@
-import React from "react";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import "froala-editor/css/froala_style.min.css";
 
-const editorConfiguration = {
-  toolbar: [
-    "heading",
-    "|",
-    "bold",
-    "italic",
-    "link",
-    "|",
-    "alignment",
-    "bulletedList",
-    "numberedList",
-    "|",
-    "blockQuote",
-    "insertTable",
-  ],
-};
+import "froala-editor/css/froala_editor.pkgd.min.css";
+
+import FroalaEditor from "react-froala-wysiwyg";
 
 interface CustomEditorInterface {
   getData: (value: string) => void;
   data?: string;
 }
 
+const options = {
+  toolbarButtons: [
+    "bold",
+    "italic",
+    "underline",
+    "alignRight",
+    "alignCenter",
+    "alignLeft",
+    "outdent",
+    "indent",
+    "undo",
+    "redo",
+    "clearFormatting",
+    "selectAll",
+  ],
+  pluginsEnabled: ["align", "charCounter"],
+  charCounterMax: 140,
+};
+
 const CustomEditor = ({ getData, data }: CustomEditorInterface) => {
   return (
-    <CKEditor
-      editor={ClassicEditor}
-      // config={editorConfiguration}
-      data={data}
-      onChange={(_, editor) => {
-        const data = editor?.getData();
-        getData(data);
-      }}
+    <FroalaEditor
+      config={options}
+      model={data}
+      onModelChange={(e: any) => getData(e)}
     />
   );
 };

@@ -5,7 +5,6 @@ import { useParams } from "next/navigation";
 
 import * as S from "./styles";
 
-
 import { useTranslation } from "@/app/i18n/client";
 import { UserInfo } from "@/helpers/types/userTypes";
 import Typography from "@/components/core/common/Typography";
@@ -38,7 +37,7 @@ function GeneralInformation({ userData, isUserDataFetching }: IProps) {
               <Skeleton.Input active={isUserDataFetching} size="default" />
             ) : (
               <Typography.Title level={4} $fontWeight={700}>
-               {t("aboutMe")}
+                {t("aboutMe")}
               </Typography.Title>
             )}
             {isUserDataFetching ? (
@@ -49,12 +48,14 @@ function GeneralInformation({ userData, isUserDataFetching }: IProps) {
               />
             ) : (
               <S.TextWrapper>
-                {userData?.description? (
+                {userData?.description ? (
                   <S.TextRender
                     dangerouslySetInnerHTML={{ __html: userData?.description }}
                   ></S.TextRender>
                 ) : (
-                  <Typography.Text $fontSize="16px" italic>{t("noContent")}</Typography.Text>
+                  <Typography.Text $fontSize="16px" italic>
+                    {t("noContent")}
+                  </Typography.Text>
                 )}
               </S.TextWrapper>
             )}
@@ -79,7 +80,9 @@ function GeneralInformation({ userData, isUserDataFetching }: IProps) {
                 <Skeleton.Input active={isUserDataFetching} size="default" />
               ) : (
                 <Flex vertical>
-                  <Typography.Text $fontSize="16px">{t("position")}</Typography.Text>
+                  <Typography.Text $fontSize="16px">
+                    {t("position")}
+                  </Typography.Text>
                   <Typography.Text $fontSize="16px" $fontWeight={700}>
                     {userData?.positionId!
                       ? t(userData?.positionId?.constant)
@@ -91,14 +94,20 @@ function GeneralInformation({ userData, isUserDataFetching }: IProps) {
                 <Skeleton.Input active={isUserDataFetching} size="default" />
               ) : (
                 <Flex vertical>
-                  <Typography.Text $fontSize="16px">{t("department")}</Typography.Text>
+                  <Typography.Text $fontSize="16px">
+                    {t("department")}
+                  </Typography.Text>
                   {userData?.departments! &&
                   userData?.departments.length > 0 ? (
                     <Flex vertical>
                       {userData.departments!.map((item, index) => (
-                        <Typography.Text $fontSize="16px" $fontWeight={700}>{
-                            t(item.constant)
-                        }</Typography.Text>
+                        <Typography.Text
+                          $fontSize="16px"
+                          $fontWeight={700}
+                          key={item?._id}
+                        >
+                          {t(item.constant)}
+                        </Typography.Text>
                       ))}
                     </Flex>
                   ) : (
@@ -113,7 +122,9 @@ function GeneralInformation({ userData, isUserDataFetching }: IProps) {
                 <Skeleton.Input active={isUserDataFetching} size="default" />
               ) : (
                 <Flex vertical>
-                  <Typography.Text $fontSize="16px">{t("education")}</Typography.Text>
+                  <Typography.Text $fontSize="16px">
+                    {t("education")}
+                  </Typography.Text>
                   <Typography.Text $fontSize="16px" $fontWeight={700}>
                     {userData?.school! ? userData?.school : t("notSetYet")}
                   </Typography.Text>
@@ -123,7 +134,9 @@ function GeneralInformation({ userData, isUserDataFetching }: IProps) {
                 <Skeleton.Input active={isUserDataFetching} size="default" />
               ) : (
                 <Flex vertical>
-                  <Typography.Text $fontSize="16px">{t("major")}</Typography.Text>
+                  <Typography.Text $fontSize="16px">
+                    {t("major")}
+                  </Typography.Text>
                   <Typography.Text $fontSize="16px" $fontWeight={700}>
                     {userData?.majorId!
                       ? t(userData?.majorId?.constant)
@@ -135,9 +148,13 @@ function GeneralInformation({ userData, isUserDataFetching }: IProps) {
                 <Skeleton.Input active={isUserDataFetching} size="default" />
               ) : (
                 <Flex vertical>
-                  <Typography.Text $fontSize="16px">{t("workplace")}</Typography.Text>
+                  <Typography.Text $fontSize="16px">
+                    {t("workplace")}
+                  </Typography.Text>
                   <Typography.Text $fontSize="16px" $fontWeight={700}>
-                    {userData?.workplace! ? userData?.workplace : t("notSetYet")}
+                    {userData?.workplace!
+                      ? userData?.workplace
+                      : t("notSetYet")}
                   </Typography.Text>
                 </Flex>
               )}

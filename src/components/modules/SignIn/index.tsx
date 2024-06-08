@@ -37,7 +37,9 @@ function SignInModule() {
       const res: any = await signIn(values).unwrap();
 
       router?.push(`/${locale}/members`);
-    } catch (error) {}
+    } catch (error) {
+      message.error(t("Sai thông tin đăng nhập"));
+    }
   };
 
   return (
@@ -98,7 +100,7 @@ function SignInModule() {
             >
               <Checkbox>{t("rememberMe")}</Checkbox>
             </Form.Item>
-            <Link href={""}>{t("forgotPassword")}</Link>
+            {/* <Link href={""}>{t("forgotPassword")}</Link> */}
           </Flex>
         </Col>
 
@@ -113,10 +115,10 @@ function SignInModule() {
           </Button>
         </Form.Item>
       </Form>
-      <Flex justify="center" gap={4}>
+      {/* <Flex justify="center" gap={4}>
         <p>{t("dontHaveAccount")}</p>
         <Link href={`/${locale}/sign-up`}>{t("signUp")}</Link>
-      </Flex>
+      </Flex> */}
     </S.Wrapper>
   );
 }

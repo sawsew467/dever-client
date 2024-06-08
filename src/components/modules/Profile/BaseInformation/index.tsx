@@ -13,6 +13,7 @@ import { useTranslation } from "@/app/i18n/client";
 
 import BriefCaseIcon from "@public/icons/layout/profiles/briefcase.svg";
 import CalendarIcon from "@public/icons/layout/profiles/calendar-month.svg";
+import Cake from "@public/icons/layout/profiles/cake.svg";
 import Gen from "@public/icons/layout/profiles/gen.svg";
 import FacebookIcon from "@public/icons/layout/socials/facebook.png";
 import GithubIcon from "@public/icons/layout/socials/github.png";
@@ -101,7 +102,7 @@ function BaseInformation({ userData, isUserDataFetching }: IProps) {
                 />
               ) : (
                 <Flex align="center" gap={12}>
-                  <Image src={CalendarIcon} alt="icon" width={24} height={24} />
+                  <Image src={Cake} alt="icon" width={24} height={24} />
                   <Typography.Text $fontSize="16px">
                     {userData?.dob
                       ? moment(userData?.dob).toDate().toLocaleDateString()
@@ -119,9 +120,7 @@ function BaseInformation({ userData, isUserDataFetching }: IProps) {
                 <Flex align="center" gap={12}>
                   <Image src={Gen} alt="icon" width={24} height={24} />
                   <Typography.Text $fontSize="16px">
-                    {userData?.gen
-                      ? `Gen ${userData?.gen}`
-                      : t("notSetYet")}
+                    {userData?.MSSV ? userData?.MSSV : t("notSetYet")}
                   </Typography.Text>
                 </Flex>
               )}
@@ -149,7 +148,9 @@ function BaseInformation({ userData, isUserDataFetching }: IProps) {
             />
           ) : (
             <Flex vertical>
-              <Typography.Text $fontSize="16px">{t("hometown")}</Typography.Text>
+              <Typography.Text $fontSize="16px">
+                {t("hometown")}
+              </Typography.Text>
               <Typography.Text $fontSize="16px" $fontWeight={700}>
                 {userData?.hometown ?? t("notSetYet")}
               </Typography.Text>
@@ -178,7 +179,7 @@ function BaseInformation({ userData, isUserDataFetching }: IProps) {
           ) : (
             <Flex vertical gap={10}>
               <Typography.Text $fontSize="16px" $fontWeight={700}>
-               {t("socials")}
+                {t("socials")}
               </Typography.Text>
               {userData?.socials! && userData?.socials.length > 0 ? (
                 <Flex gap={10}>
@@ -193,7 +194,11 @@ function BaseInformation({ userData, isUserDataFetching }: IProps) {
                     </Link>
                   ))}
                 </Flex>
-              ) : <Typography.Text $fontSize="16px">{t("notSetYet")}</Typography.Text>}
+              ) : (
+                <Typography.Text $fontSize="16px">
+                  {t("notSetYet")}
+                </Typography.Text>
+              )}
             </Flex>
           )}
         </S.MainContentWrapper>

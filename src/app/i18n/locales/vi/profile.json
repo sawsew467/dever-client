@@ -1,8 +1,8 @@
 {
-  "profile": "Trang cá nhân",
+  "profile": "Trang cá nhân của ",
   "notSetYet": "Chưa cập nhật",
-  "noContent": "Không có nội dung hợp lệ",
-  
+  "noContent": "Chưa cập nhật",
+
   "email": "Email",
   "hometown": "Địa chỉ nhà",
   "phone": "Số điện thoại",
@@ -11,15 +11,17 @@
   "general": "Thông tin chung",
   "aboutMe": "Về bản thân tôi",
   "joinedSystemDate": "Ngày tham gia hệ thống",
-  "education": "Giáo dục",
+  "education": "Trường học",
   "position": "Vị trí CLB ",
   "department": "Ban hoạt động",
   "workplace": "Nơi làm việc",
   "major": "Chuyên ngành",
+  "job": "Công việc",
+  "gen": "Thế hệ",
 
   "skills": "Kỹ năng",
   "skillsDescriptions": "Các kỹ năng lập trình tôi có",
-  
+
   "favourites": "Sở thích",
   "favouritesDescriptions": "Các sở thích của tôi mà bạn có thể biết",
 
@@ -48,5 +50,4 @@
   "AI": "Trí tuệ nhân tạo",
   "DESIGN": "Thiết kế đồ họa",
   "DMARKETING": "Digital marketing"
-
 }

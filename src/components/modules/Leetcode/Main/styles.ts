@@ -131,13 +131,13 @@ export const RankCard = styled.div`
   cursor: pointer;
 
   display: flex;
-  padding: 20px 60px; 
+  padding: 20px 60px;
 
   width: 100%;
 
   background-color: ${(props) => props.theme.colors.backgroundSecondary};
 
-  box-shadow: 0px 4px 8px rgba(82, 38, 153, 0.06);
+  box-shadow: 0px 4px 8px #00000020;
 
   border-radius: 16px;
   transition: 300ms;

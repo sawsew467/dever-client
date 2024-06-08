@@ -16,11 +16,12 @@
   "department": "Department",
   "workplace": "Workplace",
   "major": "Major",
+  "job": "Job",
+  "gen": "Generation",
 
   "skills": "Skills",
   "skillsDescriptions": "Programming skills that I have",
 
-  
   "favourites": "Favorites",
   "favouritesDescriptions": "My favorites that you may know",
 
@@ -40,9 +41,9 @@
   "FRONTENDLEAD": "Front-End Lead",
   "BACKENDLEAD": "Back-End Lead",
 
-  "MEDIA": "Media Ban",
-  "EVENT": "Event Ban",
-  "ACADEMIC": "Academic Ban",
+  "MEDIA": "Media Department",
+  "EVENT": "Event Department",
+  "ACADEMIC": "Academic Department",
 
   "ENGINEERING": "Software Engineering",
   "SECURITY": "Information security ",

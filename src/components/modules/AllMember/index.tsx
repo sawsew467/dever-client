@@ -35,8 +35,8 @@ import { createQueryString } from "@/utils/queryString";
 import FilterIconWhite from "@public/icons/layout/allMembers/filter-white.svg";
 
 import FilterIcon from "@public/icons/layout/allMembers/filter.svg";
-import SearchIcon from "@public/icons/layout/allMembers/search.svg";
-import FroalaEditor from "react-froala-wysiwyg";
+
+import { SearchOutlined } from "@ant-design/icons";
 
 interface InterfaceEnumsData {
   result: SelectProps["options"];
@@ -159,19 +159,11 @@ function AllMemberModule() {
           </Typography.Title>
           <S.ItemWrapper>
             <S.InputCustom
-              placeholder="Enter member name..."
+              placeholder={t("search")}
               size="large"
               onChange={handleSearch}
               defaultValue={search}
-              prefix={
-                <Image
-                  src={SearchIcon}
-                  alt="icon"
-                  width={22}
-                  height={22}
-                  style={{ marginRight: "8px" }}
-                />
-              }
+              prefix={<SearchOutlined />}
             />
             {screens.xs && (
               <Flex>

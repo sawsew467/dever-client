@@ -1,23 +1,22 @@
 {
   "leetcode": "Leetcode",
   "allMember": "All Member",
-  "dashboard": "Dashboard",
-  "usersManagement": "Users Management",
-  "departmentManagement": "Departments Management",
-  "positionManagement": "Position Management",
-  "majorManagement": "Major Management",
-  "socialManagement": "Social Management",
-  "imageActivityManagement": "Image Activity Management",
+  "foundation": "Foundation",
+  "love": "Love Matching",
+  "history": "History Club",
+  "activities": "Activity points",
 
   "english": "English",
   "vietnamese": "Vietnamese",
 
-  "profile": "Profile",
+  "profile": "My profile",
   "settings": "Settings",
   "logout": "Log out",
 
   "account-verifying": "Account verifying",
 
   "token_not_valid": "You are not authorized to access this resource",
-  "checkedAccess": "Successful access check"
+  "checkedAccess": "Successful access check",
+
+  "featureNotAvailable": "This feature is coming soon!"
 }

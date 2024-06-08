@@ -1,12 +1,10 @@
 {
-  "allMember": "Tất cả thành viên",
+  "allMember": "Danh sách thành viên",
   "leetcode": "Leetcode",
-  "dashboard": "Bảng điều khiển",
-  "usersManagement": "Quản lý người dùng",
-  "departmentManagement": "Quản lý ban",
-  "positionManagement": "Quản lí chức vụ",
-  "majorManagement": "Quản lí chuyên ngành",
-  "socialManagement": "Quản lí Mạng xã hội",
+  "foundation": "Nộp quỹ",
+  "love": "Ghép đôi",
+  "history": "Lịch sử CLB",
+  "activities": "Điểm hoạt động",
 
   "english": "Tiếng Anh",
   "vietnamese": "Tiếng Việt",
@@ -18,5 +16,7 @@
   "account-verifying": "Đang xác thực tài khoản",
 
   "token_not_valid": "Bạn không có quyền truy cập trang này",
-  "checkedAccess": "Kiểm tra truy cập thành công"
+  "checkedAccess": "Kiểm tra truy cập thành công",
+
+  "featureNotAvailable": "Tính năng đang được phát triển"
 }

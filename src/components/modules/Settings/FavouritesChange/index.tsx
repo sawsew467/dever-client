@@ -150,7 +150,7 @@ function FavouritiesChange({ isUserProfileLoading, userData }: IProps) {
               onClick={() => handleUpdate()}
               loading={isLoading}
             >
-              Update
+              {t("update")}
             </Button>
           </S.ContentWrapper>
         )}

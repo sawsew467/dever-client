@@ -37,10 +37,6 @@ function SettingsModules() {
     }
   );
 
-  useEffect(() => {
-    refetch();
-  }, []);
-
   return (
     <S.PageWrapper>
       <S.Head>

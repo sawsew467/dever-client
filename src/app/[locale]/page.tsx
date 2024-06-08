@@ -5,5 +5,5 @@ export default function RootPage({
 }: {
   params: { locale: string };
 }) {
-  redirect(`/${locale}/all-member`);
+  redirect(`/${locale}/members`);
 }

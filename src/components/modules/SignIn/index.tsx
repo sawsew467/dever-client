@@ -36,10 +36,8 @@ function SignInModule() {
     try {
       const res: any = await signIn(values).unwrap();
 
-      router?.push(`/${locale}/all-member`);
-    } catch (error) {
-      
-    }
+      router?.push(`/${locale}/members`);
+    } catch (error) {}
   };
 
   return (
@@ -116,7 +114,7 @@ function SignInModule() {
         </Form.Item>
       </Form>
       <Flex justify="center" gap={4}>
-        <p>{t("dontHaveAccount")}</p> 
+        <p>{t("dontHaveAccount")}</p>
         <Link href={`/${locale}/sign-up`}>{t("signUp")}</Link>
       </Flex>
     </S.Wrapper>

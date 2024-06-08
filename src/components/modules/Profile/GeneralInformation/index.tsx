@@ -66,27 +66,20 @@ function GeneralInformation({ userData, isUserDataFetching }: IProps) {
                 <Skeleton.Input active={isUserDataFetching} size="default" />
               ) : (
                 <Flex vertical>
-                  <Typography.Text $fontSize="16px">
-                    {t("joinedSystemDate")}
-                  </Typography.Text>
+                  <Typography.Text $fontSize="16px">{t("job")}</Typography.Text>
                   <Typography.Text $fontSize="16px" $fontWeight={700}>
-                    {userData?.createdAt!
-                      ? moment(userData.createdAt).toDate().toLocaleDateString()
-                      : t("notSetYet")}
+                    {userData?.job ? userData?.job : t("notSetYet")}
                   </Typography.Text>
                 </Flex>
               )}
+
               {isUserDataFetching ? (
                 <Skeleton.Input active={isUserDataFetching} size="default" />
               ) : (
                 <Flex vertical>
-                  <Typography.Text $fontSize="16px">
-                    {t("position")}
-                  </Typography.Text>
+                  <Typography.Text $fontSize="16px">{t("gen")}</Typography.Text>
                   <Typography.Text $fontSize="16px" $fontWeight={700}>
-                    {userData?.positionId!
-                      ? t(userData?.positionId?.constant)
-                      : t("notSetYet")}
+                    {userData?.gen! ? `Gen ${userData?.gen}` : t("notSetYet")}
                   </Typography.Text>
                 </Flex>
               )}
@@ -123,6 +116,20 @@ function GeneralInformation({ userData, isUserDataFetching }: IProps) {
               ) : (
                 <Flex vertical>
                   <Typography.Text $fontSize="16px">
+                    {t("workplace")}
+                  </Typography.Text>
+                  <Typography.Text $fontSize="16px" $fontWeight={700}>
+                    {userData?.workplace!
+                      ? userData?.workplace
+                      : t("notSetYet")}
+                  </Typography.Text>
+                </Flex>
+              )}
+              {isUserDataFetching ? (
+                <Skeleton.Input active={isUserDataFetching} size="default" />
+              ) : (
+                <Flex vertical>
+                  <Typography.Text $fontSize="16px">
                     {t("education")}
                   </Typography.Text>
                   <Typography.Text $fontSize="16px" $fontWeight={700}>
@@ -140,20 +147,6 @@ function GeneralInformation({ userData, isUserDataFetching }: IProps) {
                   <Typography.Text $fontSize="16px" $fontWeight={700}>
                     {userData?.majorId!
                       ? t(userData?.majorId?.constant)
-                      : t("notSetYet")}
-                  </Typography.Text>
-                </Flex>
-              )}
-              {isUserDataFetching ? (
-                <Skeleton.Input active={isUserDataFetching} size="default" />
-              ) : (
-                <Flex vertical>
-                  <Typography.Text $fontSize="16px">
-                    {t("workplace")}
-                  </Typography.Text>
-                  <Typography.Text $fontSize="16px" $fontWeight={700}>
-                    {userData?.workplace!
-                      ? userData?.workplace
                       : t("notSetYet")}
                   </Typography.Text>
                 </Flex>

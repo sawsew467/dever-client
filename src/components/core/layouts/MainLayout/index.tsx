@@ -56,7 +56,7 @@ const MainLayout = ({
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
   const [isAuth, setIsAuth] = useState<boolean>(false);
 
-  const {userInfo} = useAppSelector((state) => state.auth);
+  const { userInfo } = useAppSelector((state) => state.auth);
 
   const avatar = webStorageClient.get(constants.AVT);
 
@@ -66,7 +66,7 @@ const MainLayout = ({
         message.error(t("token_not_valid"));
         throw new Error(t("token_not_valid"));
       }
-      const res: {data: UserInfo} = await verifyToken(
+      const res: { data: UserInfo } = await verifyToken(
         webStorageClient.get("_access_token") || "??"
       ).unwrap();
       setIsAuth(true);
@@ -111,7 +111,7 @@ const MainLayout = ({
     label: t(item.label),
     link: `/${item.key}`,
   }));
-  
+
   return (
     <>
       {!isAuth ? (
@@ -155,8 +155,12 @@ const MainLayout = ({
               </S.LogoWrapper>
               <S.MenuCustom
                 mode="inline"
-                defaultSelectedKeys={["all-member"]}
+                defaultSelectedKeys={[pathname?.split("/")[2] || "members"]}
                 onClick={(e) => {
+                  if (e?.key !== "members" && e?.key !== "leetcode") {
+                    message.error(t("featureNotAvailable"));
+                    return;
+                  }
                   router?.push(`/${localActive}/${e?.key}`);
                 }}
                 items={sideBarMenuFormat}
@@ -171,7 +175,7 @@ const MainLayout = ({
                     <Flex
                       align="center"
                       gap={12}
-                      onClick={() => router?.push(`/${localActive}/all-member`)}
+                      onClick={() => router?.push(`/${localActive}/members`)}
                     >
                       <Image
                         alt=""
@@ -207,13 +211,20 @@ const MainLayout = ({
                   <S.AvatarCustom
                     size={40}
                     src={
-                      <Image src={userInfo.avatar!} alt="avatar" width={64} height={64} />
+                      <Image
+                        src={userInfo.avatar!}
+                        alt="avatar"
+                        width={64}
+                        height={64}
+                      />
                     }
                   />
                 </Flex>
               </Popover>
               {screens.xs && (
-                <S.MenuIcon onClick={() => setCollapsedMobile(!collapsedMobile)}>
+                <S.MenuIcon
+                  onClick={() => setCollapsedMobile(!collapsedMobile)}
+                >
                   {collapsedMobile ? (
                     <MenuFoldOutlined style={{ fontSize: "24px" }} />
                   ) : (
@@ -234,8 +245,13 @@ const MainLayout = ({
             >
               <S.MenuCustom
                 mode="inline"
-                defaultSelectedKeys={["all-member"]}
+                defaultSelectedKeys={[pathname?.split("/")[2] || "members"]}
                 onClick={(e) => {
+                  if (e?.key !== "members" && e?.key !== "leetcode") {
+                    message.error(t("featureNotAvailable"));
+                    return;
+                  }
+
                   router?.push(`/${localActive}/${e?.key}`);
                 }}
                 items={sideBarMenuFormat}

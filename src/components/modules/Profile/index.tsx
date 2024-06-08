@@ -52,10 +52,21 @@ function ProfileModule({ userInfo }: IProps) {
             $fontWeight={700}
             $color={themeColors.primary}
           >
-            {profileData?.firstname && profileData?.lastname
-              ? `${profileData?.firstname} ${profileData?.lastname}`
-              : profileData?.email}{" "}
-            <span style={{ color: "#000" }}>{t("profile")}</span>
+            {params?.locale === "vi" ? (
+              <>
+                <span style={{ color: "#000" }}>{t("profile")}</span>
+                {profileData?.firstname && profileData?.lastname
+                  ? `${profileData?.firstname} ${profileData?.lastname}`
+                  : profileData?.email}
+              </>
+            ) : (
+              <>
+                {profileData?.firstname && profileData?.lastname
+                  ? `${profileData?.firstname} ${profileData?.lastname}'s `
+                  : profileData?.email}
+                <span style={{ color: "#000" }}>{t("profile")}</span>
+              </>
+            )}
           </Typography.Title>
         )}
       </S.Head>

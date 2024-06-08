@@ -1,15 +1,15 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { Avatar, Col, Flex, Grid, Row } from "antd";
 
 import Typography from "@/components/core/common/Typography";
+import Card from "../Card";
 
 import { useTranslation } from "@/app/i18n/client";
 import { useGetLeaderboardQuery } from "@/store/queries/leetcode";
 
 import * as S from "./styles";
-import { Avatar, Col, Flex, Grid, Row } from "antd";
-import Card from "../Card";
 
 function LeetcodeModule() {
   const params = useParams();
@@ -31,9 +31,7 @@ function LeetcodeModule() {
     <S.PageWrapper>
       <S.Head>
         <S.HeadTitle>
-          <Typography.Title level={3} style={{ fontWeight: 700 }}>
-            {t("heading")}
-          </Typography.Title>
+          <Typography.Title>{t("heading")}</Typography.Title>
         </S.HeadTitle>
       </S.Head>
       <S.TopWrapper>
@@ -44,30 +42,30 @@ function LeetcodeModule() {
       <Row gutter={[16, 16]}>
         {result?.map((item: any, index: number) => (
           <Col span={24} key={item?._id}>
-            <S.RankCard >
-              <Flex align="center" style={{width: "100%"}} justify="space-between">
-
+            <S.RankCard>
+              <Flex
+                align="center"
+                style={{ width: "100%" }}
+                justify="space-between"
+              >
                 <Flex gap={screens.xs ? 20 : 40} align="center">
-                  <Typography.Title level={screens.md ? 3 : 5}>{index + 1}</Typography.Title>
+                  <Typography.Text>{index + 1}</Typography.Text>
                   <Flex align="center" gap={screens.xs ? 20 : 40}>
-                    <Avatar size={50} src={item?.userId?.avatar} />
-                    <Typography.Title level={screens.md ? 3 : 5}>
+                    <Avatar size={40} src={item?.userId?.avatar} />
+                    <Typography.Text>
                       {`${item?.userId?.firstname} ${item?.userId?.lastname}`}
-                    </Typography.Title>
+                    </Typography.Text>
                   </Flex>
                 </Flex>
 
                 <Flex gap={screens.xs ? 20 : 40} align="center">
                   <Flex align="center" gap={screens.xs ? 20 : 40}>
-                    <Typography.Title level={screens.md ? 3 : 5}>
-                      {item?.leetcodeUsername!}
-                    </Typography.Title>
-                    <Typography.Title level={screens.md ? 3 : 5}>
-                    {item?.acSubmissionList?.length * 10} Pts
-                    </Typography.Title>
+                    <Typography.Text>{item?.leetcodeUsername!}</Typography.Text>
+                    <Typography.Text>
+                      {item?.acSubmissionList?.length * 10} Pts
+                    </Typography.Text>
                   </Flex>
                 </Flex>
-
               </Flex>
             </S.RankCard>
           </Col>

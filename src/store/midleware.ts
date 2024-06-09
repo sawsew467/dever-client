@@ -6,7 +6,7 @@ import { message } from "antd";
 export const rtkQueryErrorLogger: Middleware =
   (api: MiddlewareAPI) => (next) => (action: any) => {
     if (isRejectedWithValue(action)) {
-      message.error("Something went wrong! Please try again later.");
+      // message.error("Something went wrong! Please try again later.");
     }
 
     return next(action);

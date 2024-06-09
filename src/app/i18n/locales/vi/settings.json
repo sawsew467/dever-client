@@ -94,6 +94,8 @@
     "requiredOne": "Ít nhất 10 ký tự (và có thể lên đến 36 ký tự)",
     "requiredTwo": "Ít nhất một ký tự viết thường hoặc viết hoa",
     "requiredThree": "Bao gồm ít nhất một trong các ký tự đặc biệt e.g., ! @ # ?",
+    "changePasswordSuccess": "Đổi password thành công",
+    "changePasswordError": "Mật khẩu cũ không đúng hoặc xảy ra lỗi",
 
     "strongPassword": "Vui lòng nhập mật khẩu mạnh hơn",
     "notMatch": "Không trùng với mật khẩu mới"

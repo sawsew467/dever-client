@@ -12,6 +12,21 @@ export const authAPI = baseApi.injectEndpoints({
         flashError: true,
       }),
     }),
+    subscribeLeaderboard: build.mutation<any, any>({
+      query: (data) => ({
+        url: endpointLeetcode.SUBCRIBE_LEADERBOARD,
+        method: "POST",
+        body: data,
+        flashError: true,
+      }),
+    }),
+    updateLeetcode: build.mutation({
+      query: () => ({
+        url: endpointLeetcode.UPDATE,
+        method: "GET",
+        flashError: true,
+      }),
+    }),
 
     getAllDepartments: build.query<any, any>({
       query: (params) => ({
@@ -47,4 +62,6 @@ export const {
   useGetAllDepartmentsQuery,
   useGetAllMajorQuery,
   useGetAllPositionQuery,
+  useSubscribeLeaderboardMutation,
+  useUpdateLeetcodeMutation,
 } = authAPI;

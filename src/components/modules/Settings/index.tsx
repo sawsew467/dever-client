@@ -17,6 +17,7 @@ import { useTranslation } from "@/app/i18n/client";
 import { constants } from "@/settings";
 import { useGetMyProfileQuery } from "@/store/queries/settings";
 import webStorageClient from "@/utils/webStorageClient";
+import LeetcodeSubcriber from "./LeetcodeSubcriber";
 
 function SettingsModules() {
   const params = useParams();
@@ -80,6 +81,10 @@ function SettingsModules() {
                   isUserProfileLoading={isFetching}
                   userData={result}
                 ></FavouritiesChange>
+                <LeetcodeSubcriber
+                  isUserProfileLoading={isFetching}
+                  userData={result}
+                ></LeetcodeSubcriber>
               </>
             )}
           </S.LGalleryCol>
@@ -100,6 +105,10 @@ function SettingsModules() {
                   isUserProfileLoading={isFetching}
                   userData={result}
                 ></FavouritiesChange>
+                <LeetcodeSubcriber
+                  isUserProfileLoading={isFetching}
+                  userData={result}
+                ></LeetcodeSubcriber>
                 <PasswordChange
                   isUserProfileLoading={isFetching}
                   userData={result}

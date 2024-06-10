@@ -21,7 +21,7 @@ function Card({
   return (
     <S.Main $isTop1={isTop1}>
       {isTop1 && (
-        <Image src={"/icons/crown.svg"} alt="" width={60} height={52} />
+        <Image src={"/icons/crown.svg"} alt="" width={screens.lg ? 60 : screens.sm ? 52 : 32} height={screens.lg ? 52 : screens?.sm ? 42 : 38} />
       )}
       <S.ImageWrapper>
         <Image src={data?.userId?.avatar} alt="" width={290} height={400} />

@@ -2,7 +2,15 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 
-import { Button, Card, Grid, message, Skeleton, Typography, Upload } from "antd";
+import {
+  Button,
+  Card,
+  Grid,
+  message,
+  Skeleton,
+  Typography,
+  Upload,
+} from "antd";
 import Image from "next/image";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -30,7 +38,7 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
   const params = useParams();
   const { t } = useTranslation(params?.locale as string, "settings");
 
-  const {userInfo} = useAppSelector((state) => state.auth);
+  const { userInfo } = useAppSelector((state) => state.auth);
 
   const handleUpload = async ({
     onSuccess,
@@ -65,7 +73,7 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
 
         updateUserProfile(data).unwrap();
         webStorageClient.set(constants.AVT, res?.data?.data?.url);
-        dispatch(applyChangeAvatar(res?.data?.data?.url))
+        dispatch(applyChangeAvatar(res?.data?.data?.url));
         message.success(t("updateSuccess"));
       }
       setIsUploading(false);
@@ -131,7 +139,7 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
             <Upload
               name="file"
               action={
-                "https://api.imgbb.com/1/upload?expiration=600&key=d0adfbcb1f973887c165948d50681492"
+                "https://api.imgbb.com/1/upload?expiration=600&key=918aada6b01cafd0f2376e075c429457"
               }
               headers={{
                 authorization: "authorization-text",

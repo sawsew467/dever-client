@@ -32,7 +32,7 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
         newPassword: values.newPassword,
       };
 
-      await changePassword(data);
+      await changePassword(data).unwrap();
       message.success("Change password thànhc công ");
     } catch (error) {
       message.error("Đã xảy ra lỗi khi thay đổi password");

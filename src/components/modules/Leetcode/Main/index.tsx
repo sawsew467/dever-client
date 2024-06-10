@@ -31,7 +31,9 @@ function LeetcodeModule() {
     <S.PageWrapper>
       <S.Head>
         <S.HeadTitle>
-          <Typography.Title>{t("heading")}</Typography.Title>
+          <Typography.Title level={3} style={{ fontWeight: 700 }}>
+            {t("heading")}
+          </Typography.Title>
         </S.HeadTitle>
       </S.Head>
       <S.TopWrapper>

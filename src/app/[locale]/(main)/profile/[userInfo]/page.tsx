@@ -1,21 +1,19 @@
-import ProfileModule from '@/components/modules/Profile';
-import { Metadata } from 'next';
-import React from 'react'
+import ProfileModule from "@/components/modules/Profile";
+import { Metadata } from "next";
+import React from "react";
 
 export const metadata: Metadata = {
-    title: "Member's Profile | Fu - Dever",
+  title: "FU-DEVER | Hồ sơ thành viên",
 };
 
 interface IProps {
-    params: {
-        userInfo: string;
-    }
+  params: {
+    userInfo: string;
+  };
 }
 
-function Profile({params}: IProps) {
-    return (
-        <ProfileModule userInfo={params.userInfo}/>
-    )
+function Profile({ params }: IProps) {
+  return <ProfileModule userInfo={params.userInfo} />;
 }
 
-export default Profile
+export default Profile;

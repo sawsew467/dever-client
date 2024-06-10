@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Profile settings | Fu - Dever",
+  title: "FU-DEVER | Cài đặt",
 };
 
 function Settings() {

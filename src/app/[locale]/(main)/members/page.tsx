@@ -1,13 +1,13 @@
-import AllMemberModule from '@/components/modules/AllMember';
-import { Metadata } from 'next';
-import React from 'react'
+import AllMemberModule from "@/components/modules/AllMember";
+import { Metadata } from "next";
+import React from "react";
 
 export const metadata: Metadata = {
-    title: "All Member | Fu - Dever",
-  };
-  
+  title: "FU-DEVER | Danh sách thành viên",
+};
+
 function AllMember() {
-    return <AllMemberModule/>
+  return <AllMemberModule />;
 }
 
-export default AllMember
+export default AllMember;

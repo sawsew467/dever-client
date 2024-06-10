@@ -6,7 +6,7 @@ import Providers from "@/providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Fu - Dever",
+  title: "FU - DEVER",
   description: "Fu-Dever dashboard cho thành viên",
   icons: "/icons/layout/fu-dever-logo.png",
 };

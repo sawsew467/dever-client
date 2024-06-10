@@ -124,6 +124,8 @@ export const TopWrapper = styled.div`
 
   @media ${(props) => props.theme.breakpoints.lgMax} {
     gap: 16px;
+    margin: 40px 0;
+
   }
   @media ${(props) => props.theme.breakpoints.xlMax} {
     gap: 16px;

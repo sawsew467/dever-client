@@ -132,7 +132,7 @@ const MainLayout = ({
                     <Flex
                       align="center"
                       gap={12}
-                      onClick={() => router?.push(`/${localActive}/all-member`)}
+                      onClick={() => router?.push(`/${localActive}/members`)}
                     >
                       <Image
                         alt=""

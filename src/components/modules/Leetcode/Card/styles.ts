@@ -54,6 +54,19 @@ export const ImageWrapper = styled.div`
     padding: 8px 16px;
 
     border-radius: 50%;
+
+    @media ${(props) => props.theme.breakpoints.smMax} {
+      font-size: 16px;
+      width: 34px;
+      height: 34px;
+      bottom: 3%;
+    }
+    @media ${(props) => props.theme.breakpoints.mdMax} {
+      font-size: 16px;
+      width: 44px;
+      height: 44px;
+      bottom: 2%;
+    }
   }
 
   img {
@@ -67,11 +80,15 @@ export const ImageWrapper = styled.div`
     border: 4px solid ${(props) => props.theme.colors.primary};
 
     @media ${(props) => props.theme.breakpoints.lgMax} {
-      height: 200px;
+      height: 320px;
     }
-    
+
+    @media ${(props) => props.theme.breakpoints.mdMax} {
+      height: 240px;
+    }
+  
     @media ${(props) => props.theme.breakpoints.smMax} {
-      height: 130px;
+      height: 180px;
       border: 2px solid ${(props) => props.theme.colors.primary};
     }
   }

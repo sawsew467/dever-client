@@ -191,6 +191,7 @@ function GeneralChange({ isUserProfileLoading, userData }: IProps) {
                     rules={[{ required: true, message: t("cantBeEmpty") }]}
                   >
                     <S.DatePickerCustom
+                      format={"DD/MM/YYYY"}
                       size="large"
                       placeholder={t("enterBirthday")}
                     />

@@ -58,7 +58,7 @@ function AvatarChange({ isProfileFetching, userData }: IProps) {
     fmData.append("image", file);
     try {
       const res = await axios.post(
-        "https://api.imgbb.com/1/upload?key=c9a0d416d3771b79bea983ffbb51811e",
+        "https://api.imgbb.com/1/upload?key=488e7d944b2bedd5020e1ace8585d1df",
         fmData,
         config
       );

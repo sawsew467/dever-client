@@ -33,9 +33,9 @@ function PasswordChange({ isUserProfileLoading, userData }: IProps) {
       };
 
       await changePassword(data).unwrap();
-      message.success("Change password thànhc công ");
+      message.success(t("changePasswordSuccess"));
     } catch (error) {
-      message.error("Đã xảy ra lỗi khi thay đổi password");
+      message.error(t("changePasswordError"));
     }
   };
 

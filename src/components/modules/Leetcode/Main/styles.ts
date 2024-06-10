@@ -125,6 +125,9 @@ export const TopWrapper = styled.div`
   @media ${(props) => props.theme.breakpoints.lgMax} {
     gap: 16px;
   }
+  @media ${(props) => props.theme.breakpoints.xlMax} {
+    gap: 16px;
+  }
 `;
 
 export const RankCard = styled.div`

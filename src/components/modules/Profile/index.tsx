@@ -13,6 +13,7 @@ import { useGetProfileQuery } from "@/store/queries/profiles";
 import themeColors from "@/style/themes/default/colors";
 import { useTranslation } from "@/app/i18n/client";
 import Favourites from "./Favourites";
+import LeetCode from "./Leetcode";
 
 interface IProps {
   userInfo: string;
@@ -108,10 +109,18 @@ function ProfileModule({ userInfo }: IProps) {
                   userData={profileData}
                   isUserDataFetching={isFetching}
                 />
+                   <LeetCode
+                  userData={profileData}
+                  isUserDataFetching={isFetching}
+                />
               </>
             ) : (
               <>
                 <GeneralInformation
+                  userData={profileData}
+                  isUserDataFetching={isFetching}
+                />
+                <LeetCode
                   userData={profileData}
                   isUserDataFetching={isFetching}
                 />

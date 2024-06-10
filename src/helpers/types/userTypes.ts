@@ -28,6 +28,17 @@ export interface UserInfo {
   majorId: UserEnum;
   positionId: UserEnum;
   socials: Social[];
+
+  acSubmissionList: Submissoion[];
+}
+
+export interface Submissoion {
+  date: string,
+  id: string,
+  timestamp: string;
+  title: string;
+  titleSlug: string;
+  _id: string;
 }
 
 export interface UserEnum {

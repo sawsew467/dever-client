@@ -23,7 +23,7 @@ function LeetCode({ userData, isUserDataFetching }: IProps) {
         <Flex vertical gap={12}>
           {userData?.acSubmissionList?.map((item, index) => {
             return (
-              <S.TextWrapper>
+              <S.TextWrapper key={index}>
                   <Typography.Text $fontSize="16px" $fontWeight={700}>
                     {item.title}
                   </Typography.Text>

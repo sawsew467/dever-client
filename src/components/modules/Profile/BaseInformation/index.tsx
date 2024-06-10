@@ -105,7 +105,7 @@ function BaseInformation({ userData, isUserDataFetching }: IProps) {
                   <Image src={Cake} alt="icon" width={24} height={24} />
                   <Typography.Text $fontSize="16px">
                     {userData?.dob
-                      ? moment(userData?.dob).toDate().toLocaleDateString()
+                      ? moment(userData?.dob).format('DD/MM/YYYY')
                       : t("notSetYet")}
                   </Typography.Text>
                 </Flex>

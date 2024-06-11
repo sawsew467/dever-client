@@ -156,7 +156,7 @@ function BaseInformation({ userData, isUserDataFetching }: IProps) {
               </Typography.Text>
             </Flex>
           )}
-          {isUserDataFetching ? (
+          {/* {isUserDataFetching ? (
             <Skeleton.Input
               active={isUserDataFetching}
               size="default"
@@ -165,11 +165,11 @@ function BaseInformation({ userData, isUserDataFetching }: IProps) {
           ) : (
             <Flex vertical>
               <Typography.Text $fontSize="16px">{t("phone")}</Typography.Text>
-              {/* <Typography.Text $fontSize="16px" $fontWeight={700}>
+              <Typography.Text $fontSize="16px" $fontWeight={700}>
                 {userData?.phone ?? t("notSetYet")}
-              </Typography.Text> */}
+              </Typography.Text>
             </Flex>
-          )}
+          )} */}
           {isUserDataFetching ? (
             <Skeleton.Input
               active={isUserDataFetching}

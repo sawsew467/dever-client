@@ -15,25 +15,33 @@ function LeetCode({ userData, isUserDataFetching }: IProps) {
   return (
     <S.ContainerWrapper>
       <S.CustomCard>
-        <Flex vertical>
-          <Typography.Title level={3} $fontWeight={700}>
-            {"LeetCode"}
-          </Typography.Title>
-        </Flex>
-        <Flex vertical gap={12}>
-          {userData?.acSubmissionList?.map((item, index) => {
-            return (
-              <S.TextWrapper key={index}>
-                  <Typography.Text $fontSize="16px" $fontWeight={700}>
-                    {item.title}
-                  </Typography.Text>
-                  <Typography.Text $fontSize="16px" $fontWeight={700}>
-                    {moment(item.date).toDate().toLocaleDateString()}
-                  </Typography.Text>
-              </S.TextWrapper>
-            );
-          })}
-        </Flex>
+        {isUserDataFetching ? (
+          <Skeleton.Input active={isUserDataFetching} size="default" style={{
+            width: "100%"
+          }} />
+        ) : (
+          <>
+            <Flex vertical>
+              <Typography.Title level={3} $fontWeight={700}>
+                {"LeetCode"}
+              </Typography.Title>
+            </Flex>
+            <Flex vertical gap={12}>
+              {userData?.acSubmissionList?.map((item, index) => {
+                return (
+                  <S.TextWrapper key={index}>
+                    <Typography.Text $fontSize="16px" $fontWeight={700}>
+                      {item.title}
+                    </Typography.Text>
+                    <Typography.Text $fontSize="16px" $fontWeight={700}>
+                      {moment(item.date).toDate().toLocaleDateString()}
+                    </Typography.Text>
+                  </S.TextWrapper>
+                );
+              })}
+            </Flex>
+          </>
+        )}
       </S.CustomCard>
     </S.ContainerWrapper>
   );

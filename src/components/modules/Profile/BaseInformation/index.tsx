@@ -105,7 +105,7 @@ function BaseInformation({ userData, isUserDataFetching }: IProps) {
                   <Image src={Cake} alt="icon" width={24} height={24} />
                   <Typography.Text $fontSize="16px">
                     {userData?.dob
-                      ? moment(userData?.dob).format('DD/MM/YYYY')
+                      ? moment(userData?.dob).format("DD/MM/YYYY")
                       : t("notSetYet")}
                   </Typography.Text>
                 </Flex>
@@ -165,9 +165,9 @@ function BaseInformation({ userData, isUserDataFetching }: IProps) {
           ) : (
             <Flex vertical>
               <Typography.Text $fontSize="16px">{t("phone")}</Typography.Text>
-              <Typography.Text $fontSize="16px" $fontWeight={700}>
+              {/* <Typography.Text $fontSize="16px" $fontWeight={700}>
                 {userData?.phone ?? t("notSetYet")}
-              </Typography.Text>
+              </Typography.Text> */}
             </Flex>
           )}
           {isUserDataFetching ? (

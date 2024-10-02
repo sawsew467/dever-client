@@ -158,7 +158,7 @@ function DashboardPage() {
       vertical
       gap={16}
       style={{
-        padding: "40px 80px",
+        padding: "40px 10px",
       }}
     >
       <Typography.Title
